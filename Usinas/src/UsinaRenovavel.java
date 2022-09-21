@@ -23,7 +23,12 @@ public class UsinaRenovavel extends Usina{
 
     @Override
     public String geraResumo() {
-        return null;
+        String descricao = "";
+            descricao += "Nome: "+ super.getNome() + "\n";
+            descricao += "Produção de MWh: " + super.getProducaoMWh() + "\n";
+            descricao += "Custo do MWh: "+ super.getCustoMWh() + "\n";
+            descricao += "Combustivel: "+ fonte + "\n";
+            return descricao;
     }
 
     public String getFonte() {

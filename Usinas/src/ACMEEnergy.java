@@ -14,9 +14,9 @@ public class ACMEEnergy {
 
 	public void inicializa() {		
 	Usina u;
-		u = new UsinaNaoRenovavel("Francisca", 300, 1000, "Carvão", 30);
+		u = new UsinaNaoRenovavel("Dona Francisca", 300, 1000, "Carvão", 30);
 		conglomerado.cadastraUsina(u);
-		u = new UsinaRenovavel("Boca do Inferno", 100, 3000, "Eólica");
+		u = new UsinaRenovavel("Boca Do Inferno", 100, 3000, "Eólica");
 		conglomerado.cadastraUsina(u);
 		u = new UsinaRenovavel("Santa Maria", 200, 2000, "Hídrica");
 		conglomerado.cadastraUsina(u);
