@@ -15,12 +15,16 @@ public class ACMEEnergy {
 	public void inicializa() {		
 	Usina u;
 		u = new UsinaNaoRenovavel("Dona Francisca", 300, 1000, "Carvão", 30);
+		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
 		u = new UsinaRenovavel("Boca Do Inferno", 100, 3000, "Eólica");
+		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
 		u = new UsinaRenovavel("Santa Maria", 200, 2000, "Hídrica");
+		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
 		u= new UsinaRenovavel("Passo Real", 200, 2000, "Hídrica");
+		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
 	}
 
@@ -60,7 +64,7 @@ public class ACMEEnergy {
 		
 		System.out.print("Bem vindo ao Cadastro de Usinas: ");
 		System.out.print("Digite o Nome da Usina: ");
-		entrada.nextLine();
+		
 	
 	}
 
@@ -71,9 +75,8 @@ public class ACMEEnergy {
 	private void consultaPreco() {
 		System.out.println("======================================");
 		System.out.print("Digite o Nome da Usina: ");
-		String nome = entrada.next();
-		entrada.nextLine();
-		System.out.print("O preço do MWh da Usina:"+ nome + "é de R$ " + conglomerado.consultaPreco(nome));
+		String nome = entrada.nextLine();
+		System.out.println("O preço do MWh da Usina: "+ nome + " é de R$: " + conglomerado.consultaPreco(nome));
 	
 	}
 
@@ -104,5 +107,6 @@ public class ACMEEnergy {
 		System.out.println("[4] Consultar preço do MWh por Usina");
 		System.out.println("[5] Salvar dados em Arquivo");
 		System.out.println("Opcao desejada: ");
+		
 	}
 }

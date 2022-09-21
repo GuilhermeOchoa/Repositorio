@@ -27,7 +27,7 @@ public class Conglomerado {
 	public double consultaPreco(String nome) {
 		for(Usina u: usinas){
 			if(u.getNome().equals(nome))
-			return u.calculaPrecoMWh();
+			return u.getPrecoMWh();
 		}
 		return -1;
 	}

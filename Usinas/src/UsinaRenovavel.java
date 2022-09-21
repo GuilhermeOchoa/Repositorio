@@ -7,17 +7,18 @@ public class UsinaRenovavel extends Usina{
     }
     @Override
     public double calculaPrecoMWh() {
-        // String fonte =  getFonte();
-        // switch (fonte) {
-        //     case "SOLAR":
-            
-        //         break;
-        //     case "EÓLICA":
-        //         break;
-        //     case "HÍDRICA":
-        //         break;
+        switch (fonte) {
+            case "Solar":
+            super.setCustoMWh(super.getCustoMWh()*1.25);
+                break;
+            case "Eólica":
+            super.setCustoMWh(super.getCustoMWh()*1.15);
+                break;
+            case "Hídrica":
+            super.setCustoMWh(super.getCustoMWh()*1.5);
+                break;
 
-        // }
+        }
          return 0;
     }
 
@@ -28,6 +29,7 @@ public class UsinaRenovavel extends Usina{
             descricao += "Produção de MWh: " + super.getProducaoMWh() + "\n";
             descricao += "Custo do MWh: "+ super.getCustoMWh() + "\n";
             descricao += "Combustivel: "+ fonte + "\n";
+            descricao += "Preço do Mwh: "+ super.getPrecoMWh() + "\n";
             return descricao;
     }
 
