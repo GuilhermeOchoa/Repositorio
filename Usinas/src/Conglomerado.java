@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class Conglomerado {
 
 	private ArrayList<Usina> usinas;
+	
+	public Conglomerado() {
+		usinas = new ArrayList<Usina>();
+	}	
 
 	public boolean cadastraUsina(Usina usina) {
 		return usinas.add(usina);

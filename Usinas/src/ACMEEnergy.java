@@ -14,7 +14,7 @@ public class ACMEEnergy {
 
 	public void inicializa() {		
 	Usina u;
-		u = new UsinaNaoRenovavel("São Francisco", 300, 1000, "Carvão", 30);
+		u = new UsinaNaoRenovavel("Francisca", 300, 1000, "Carvão", 30);
 		conglomerado.cadastraUsina(u);
 		u = new UsinaRenovavel("Boca do Inferno", 100, 3000, "Eólica");
 		conglomerado.cadastraUsina(u);
@@ -69,7 +69,7 @@ public class ACMEEnergy {
 	}
 
 	private void consultaPreco() {
-		System.out.println("===================");
+		System.out.println("======================================");
 		System.out.print("Digite o Nome da Usina: ");
 		String nome = entrada.next();
 		entrada.nextLine();
@@ -82,7 +82,7 @@ public class ACMEEnergy {
 	}
 
 	private void pesquisaUsina() {
-		System.out.println("===================");
+		System.out.println("======================================");
 		System.out.print("Digite o nome da Usina: ");
 		String nome = entrada.nextLine();
 		Usina u = conglomerado.pesquisaUsina(nome);
@@ -95,7 +95,7 @@ public class ACMEEnergy {
 	}
 
 	private void menu() {
-		System.out.println("=============================");
+		System.out.println("======================================");
 		System.out.println("Opcoes:");
 		System.out.println("[0] Sair do Sistema");
 		System.out.println("[1] Cadastra Usina");
