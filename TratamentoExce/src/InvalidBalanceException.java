@@ -1,8 +1,7 @@
-public class InvalidBalanceException {
+public class InvalidBalanceException extends Exception {
 
-    public InvalidBalanceException() {
-        System.out.println("Saldo invalido");
-    }
+	public InvalidBalanceException(String msg) {
+		super(msg);
+	}
 
-    
 }
