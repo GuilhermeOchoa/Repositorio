@@ -15,6 +15,8 @@ public abstract class Usina {
 
 	public abstract String geraResumo();
 
+	public abstract String geraCsv();
+
 	public String getNome() {
 		return nome;
 	}

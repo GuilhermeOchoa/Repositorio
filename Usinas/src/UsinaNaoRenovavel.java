@@ -37,4 +37,18 @@ public class UsinaNaoRenovavel extends Usina {
             return descricao;
           
     }
+    @Override
+    public String geraCsv() {
+        String descricao = "2";
+        descricao += ";"+ super.getNome();
+        descricao += ";" + super.getProducaoMWh();
+        descricao += ";"+ super.getCustoMWh();
+        descricao += ";"+ combustivel;
+        descricao += ";"+ durabilidade;
+        descricao += ";"+ super.getPrecoMWh() +"\n";
+        return descricao;
+      
+}
+
+
 }

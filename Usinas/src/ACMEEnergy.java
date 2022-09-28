@@ -1,3 +1,10 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //classe de aplicação
@@ -29,7 +36,7 @@ public class ACMEEnergy {
 	}
 
 	public void executa() {
-		inicializa();
+		
 		int opcao;
 		do {
 			menu();
@@ -69,6 +76,16 @@ public class ACMEEnergy {
 	}
 
 	private void salvaDadosArquivo() {
+	ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
+	Path path = Paths.get("usinas.txt");
+	try(PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path,Charset.defaultCharset()))) {
+		for (Usina u : usinas) {
+			writer.format(u.geraCsv());
+		}
+	}
+		catch (IOException e) {
+			System.err.format("Erro de E/S: %s%n", e);
+		}
 
 	}
 
@@ -81,7 +98,10 @@ public class ACMEEnergy {
 	}
 
 	private void listaTodasUsinas() {
-		conglomerado.listaTodasUsinas();
+		ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
+		for(Usina u : usinas){
+			System.out.println( u.geraResumo());
+		}
 	}
 
 	private void pesquisaUsina() {

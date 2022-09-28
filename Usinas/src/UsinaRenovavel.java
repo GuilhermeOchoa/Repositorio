@@ -33,6 +33,17 @@ public class UsinaRenovavel extends Usina{
             return descricao;
     }
 
+    @Override
+    public String geraCsv() {
+        String descricao = "1";
+            descricao += ";"+ super.getNome();
+            descricao += ";" + super.getProducaoMWh();
+            descricao += ";"+ super.getCustoMWh();
+            descricao += ";"+ fonte;
+            descricao += ";"+ super.getPrecoMWh() +"\n";
+            return descricao;
+    }
+
     public String getFonte() {
         return fonte;
     }
