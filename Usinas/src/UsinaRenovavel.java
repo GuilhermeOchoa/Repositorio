@@ -9,13 +9,13 @@ public class UsinaRenovavel extends Usina{
     public double calculaPrecoMWh() {
         switch (fonte) {
             case "Solar":
-            super.setCustoMWh(super.getCustoMWh()*1.25);
+            super.setPrecoMWh(super.getCustoMWh()*1.25);
                 break;
             case "Eólica":
-            super.setCustoMWh(super.getCustoMWh()*1.15);
+            super.setPrecoMWh(super.getCustoMWh()*1.15);
                 break;
             case "Hídrica":
-            super.setCustoMWh(super.getCustoMWh()*1.5);
+            super.setPrecoMWh(super.getCustoMWh()*1.5);
                 break;
 
         }

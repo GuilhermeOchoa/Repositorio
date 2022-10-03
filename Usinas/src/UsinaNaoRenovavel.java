@@ -11,14 +11,14 @@ public class UsinaNaoRenovavel extends Usina {
    @Override
     public double calculaPrecoMWh() {
         switch (combustivel) {
-            case "PETRÓLEO":
-            super.setCustoMWh(super.getCustoMWh()*1.30);
+            case "Petróleo":
+            super.setPrecoMWh(super.getCustoMWh()*1.30);
                 break;
             case "Carvão":
              super.setPrecoMWh(super.getCustoMWh()*1.20);
                 break;
-            case "NUCLEAR":
-            super.setCustoMWh(super.getCustoMWh()*1.10);
+            case "Nuclear":
+            super.setPrecoMWh(super.getCustoMWh()*1.10);
                 break;
 
         }
