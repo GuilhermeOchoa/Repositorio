@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Conglomerado {
 
 	private ArrayList<Usina> usinas;
@@ -9,7 +11,11 @@ public class Conglomerado {
 	}	
 
 	public boolean cadastraUsina(Usina usina) {
-		return usinas.add(usina);
+		if(pesquisaUsina(usina.getNome())==null){
+		 usinas.add(usina);
+		 return true;
+	}
+		 return false;
 	}
 
 	public Usina pesquisaUsina(String nome) {

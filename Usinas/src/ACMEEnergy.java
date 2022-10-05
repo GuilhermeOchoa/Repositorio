@@ -69,9 +69,31 @@ public class ACMEEnergy {
 
 	private void CadastraUsina() {
 		
-		System.out.print("Bem vindo ao Cadastro de Usinas: ");
+		System.out.print("Bem vindo ao Cadastro de Usinas");
 		System.out.print("Digite o Nome da Usina: ");
-		
+		String nome = entrada.nextLine();
+		System.out.print("Digite a producao: ");
+		double producao= entrada.nextDouble();
+		System.out.print("Digite o custo do MWh: ");
+		double custo= entrada.nextDouble();
+		System.out.print("Ditige sua opção: ");
+		System.out.print("[1]Usina Renovavel [2]Usina nao-renovavel");
+		int opcao = entrada.nextInt();
+		if(1){
+			System.out.println("Digite a fonte de energia: ");
+			String fonte = entrada.nextLine();
+		Usina u = new Usina(nome, producao, custo, fonte);
+		u.calculaPrecoMWh();
+		conglomerado.cadastraUsina(u);			
+		}
+		else
+		System.out.println("Digite o Combustivel");
+		String combustivel = entrada.nextLine();
+		System.out.println("Digite a durabilidade");
+		int durabilidade = entrada.nextInt();
+		Usina u = new Usina(nome, producao, custo, combustivel,durabilidade);
+		u.calculaPrecoMWh();
+		conglomerado.cadastraUsina(u);		
 	
 	}
 
