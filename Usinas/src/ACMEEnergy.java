@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 //classe de aplicação
@@ -15,6 +16,7 @@ public class ACMEEnergy {
 	
 	public ACMEEnergy() {
 		entrada = new Scanner(System.in);
+		Locale.setDefault(new Locale("pt","BR"));
 		conglomerado = new Conglomerado();
 		
 	}
@@ -69,37 +71,42 @@ public class ACMEEnergy {
 
 	private void CadastraUsina() {
 		
-		System.out.print("Bem vindo ao Cadastro de Usinas");
-		System.out.print("Digite o Nome da Usina: ");
+		System.out.println("Bem vindo ao Cadastro de Usinas");
+		System.out.println("Digite o Nome da Usina: ");
 		String nome = entrada.nextLine();
-		System.out.print("Digite a producao: ");
+		System.out.println("Digite a producao: ");
 		double producao= entrada.nextDouble();
-		System.out.print("Digite o custo do MWh: ");
+		System.out.println("Digite o custo do MWh: ");
 		double custo= entrada.nextDouble();
-		System.out.print("Ditige sua opção: ");
-		System.out.print("[1]Usina Renovavel [2]Usina nao-renovavel");
+		System.out.println("Ditige sua opção: ");
+		System.out.println("[1]Usina Renovavel - [2]Usina nao-renovavel");
 		int opcao = entrada.nextInt();
-		if(1){
+		entrada.nextLine();
+		if(opcao == 1){
 			System.out.println("Digite a fonte de energia: ");
 			String fonte = entrada.nextLine();
-		Usina u = new Usina(nome, producao, custo, fonte);
+		Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
 		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);			
 		}
-		else
+		if(opcao==2){
 		System.out.println("Digite o Combustivel");
 		String combustivel = entrada.nextLine();
 		System.out.println("Digite a durabilidade");
 		int durabilidade = entrada.nextInt();
-		Usina u = new Usina(nome, producao, custo, combustivel,durabilidade);
+		Usina u = new UsinaNaoRenovavel(nome, producao, custo, combustivel,durabilidade);
 		u.calculaPrecoMWh();
-		conglomerado.cadastraUsina(u);		
+		conglomerado.cadastraUsina(u);
+		}	
 	
 	}
 
 	private void salvaDadosArquivo() {
 	ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
-	Path path = Paths.get("usinas.txt");
+	System.out.println("Digite o nome do Arquivo");
+	String nomeArquivo = entrada.nextLine();
+	entrada.nextLine();
+	Path path = Paths.get(nomeArquivo);
 	try(PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path,Charset.defaultCharset()))) {
 		for (Usina u : usinas) {
 			writer.format(u.geraCsv());

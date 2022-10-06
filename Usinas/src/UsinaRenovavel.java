@@ -11,10 +11,10 @@ public class UsinaRenovavel extends Usina{
             case "Solar":
             super.setPrecoMWh(super.getCustoMWh()*1.25);
                 break;
-            case "Eólica":
+            case "Eolica":
             super.setPrecoMWh(super.getCustoMWh()*1.15);
                 break;
-            case "Hídrica":
+            case "Hidrica":
             super.setPrecoMWh(super.getCustoMWh()*1.5);
                 break;
 
