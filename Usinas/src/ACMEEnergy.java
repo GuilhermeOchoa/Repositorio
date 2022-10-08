@@ -7,8 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+
 
 //classe de aplicação
 
@@ -16,11 +18,9 @@ public class ACMEEnergy {
 	private Conglomerado conglomerado;
 	private Scanner entrada;
 	
-	public ACMEEnergy() {
-		entrada = new Scanner(System.in);
-		Locale.setDefault(new Locale("pt","BR"));
-		conglomerado = new Conglomerado();
-		
+	public ACMEEnergy() {		
+			entrada = new Scanner(System.in);
+			conglomerado = new Conglomerado();
 	}
 
 	public void inicializa() {		
@@ -39,6 +39,9 @@ public class ACMEEnergy {
 		conglomerado.cadastraUsina(u);
 	}
 
+	/**
+	 * execução do laço principal/ seleceção de menus
+	 */
 	public void executa() {
 		
 		int opcao;
@@ -46,64 +49,67 @@ public class ACMEEnergy {
 			menu();
 			opcao = entrada.nextInt();
 			entrada.nextLine();
-			switch (opcao) {
-				case 0:
-					break;
-				case 1:
-					CadastraUsina();
-					break;
-				case 2:
-					pesquisaUsina();
-					break;
-				case 3:
-					listaTodasUsinas();
-					break;
-				case 4:
-					consultaPreco();
-					break;
-				case 5:
-					salvaDadosArquivo();
-					break;
-				case 6:
-					lerArquivo();
-					break;
-				default:
-					System.out.println("Opcao invalida.");
-					break;
-			}
+				switch (opcao) {
+					case 0:
+						break;
+					case 1:
+						CadastraUsina();
+						break;
+					case 2:
+						pesquisaUsina();
+						break;
+					case 3:
+						listaTodasUsinas();
+						break;
+					case 4:
+						consultaPreco();
+						break;
+					case 5:
+						salvaDadosArquivo();
+						break;
+					case 6:
+						lerArquivo();
+						break;
+					default:
+						System.out.println("Opcao invalida.");
+						break;
+				}
 		} while (opcao != 0);
 	}
-
-	private void CadastraUsina() {
-		
-		System.out.println("Bem vindo ao Cadastro de Usinas");
-		System.out.println("Digite o Nome da Usina: ");
-		String nome = entrada.nextLine();
-		System.out.println("Digite a producao MWh: ");
-		double producao= entrada.nextDouble();
-		System.out.println("Digite o custo do MWh: ");
-		double custo= entrada.nextDouble();
-		System.out.println("Ditige sua opção: ");
-		System.out.println("[1]Usina Renovavel - [2]Usina nao-renovavel");
-		int opcao = entrada.nextInt();
-		entrada.nextLine();
-		if(opcao == 1){
-			System.out.println("Digite a fonte de energia: ");
-			String fonte = entrada.nextLine();
-		Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
-		u.calculaPrecoMWh();
-		conglomerado.cadastraUsina(u);			
-		}
-		if(opcao==2){
-		System.out.println("Digite o Combustivel");
-		String combustivel = entrada.nextLine();
-		System.out.println("Digite a durabilidade");
-		int durabilidade = entrada.nextInt();
-		Usina u = new UsinaNaoRenovavel(nome, producao, custo, combustivel,durabilidade);
-		u.calculaPrecoMWh();
-		conglomerado.cadastraUsina(u);
-		}	
 	
+	private void CadastraUsina() {
+		try {
+			System.out.println("Bem vindo ao Cadastro de Usinas!");
+			System.out.println("Digite o Nome da Usina: ");
+			String nome = entrada.nextLine();
+			System.out.println("Digite a producao em MWh: ");
+			double producao= entrada.nextDouble();
+			System.out.println("Digite o custo do MWh: ");
+			double custo= entrada.nextDouble();
+			System.out.println("Ditige sua opção: 1 - Usina Renovavel / 2 - Usina nao-renovavel ");
+			int opcao = entrada.nextInt();
+			entrada.nextLine();
+			if(opcao == 1){
+				System.out.println("Digite a fonte de energia: ");
+				String fonte = entrada.nextLine();
+				Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
+				u.calculaPrecoMWh();
+				conglomerado.cadastraUsina(u);			
+			}
+			if(opcao==2){
+				System.out.println("Digite o Combustivel");
+				String combustivel = entrada.nextLine();
+				System.out.println("Digite a durabilidade");
+				int durabilidade = entrada.nextInt();
+				Usina u = new UsinaNaoRenovavel(nome, producao, custo, combustivel,durabilidade);
+				u.calculaPrecoMWh();
+				conglomerado.cadastraUsina(u);
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Tipo diferente do esperado para entrada de dados");
+		}
+			
+			
 	}
 
 	private void salvaDadosArquivo() {
@@ -127,9 +133,14 @@ public class ACMEEnergy {
 		System.out.println("======================================");
 		System.out.print("Digite o Nome da Usina: ");
 		String nome = entrada.nextLine();
-		System.out.println("O preço do MWh da Usina: "+ nome + " é de R$: " + conglomerado.consultaPreco(nome));
-	
+		Usina u = conglomerado.pesquisaUsina(nome);
+		if (u == null)
+			System.out.println("Erro. Nao ha Usina com este nome");
+		else {
+			System.out.println("O preço do MWh da Usina: "+ nome + " é de R$: " + conglomerado.consultaPreco(nome));
+		}	
 	}
+
     /**
      * Leitura de arquivo (usando java.io)
      * @param nomeArquivo nome do arquivo
@@ -146,23 +157,23 @@ public class ACMEEnergy {
                 Scanner sc = new Scanner(linha).useDelimiter(";");
                 	int numero = Integer.parseInt(sc.next());
 					if(numero == 1){
-					String nome =sc.next();
-					double producao = Double.parseDouble(sc.next());
-					double custo = Double.parseDouble(sc.next());
-					String fonte = sc.next();
-					Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
-					u.calculaPrecoMWh();
-					conglomerado.cadastraUsina(u);
+						String nome =sc.next();
+						double producao = Double.parseDouble(sc.next());
+						double custo = Double.parseDouble(sc.next());
+						String fonte = sc.next();
+						Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
+						u.calculaPrecoMWh();
+						conglomerado.cadastraUsina(u);
 					}else{
-					String nome =sc.next();
-					double producao = Double.parseDouble(sc.next());
-					double custo = Double.parseDouble(sc.next());
-					String fonte = sc.next();
-					int durabilidade = Integer.parseInt(sc.next());
-					Usina u = new UsinaNaoRenovavel(nome, producao, custo, fonte, durabilidade);
-					u.calculaPrecoMWh();
-					conglomerado.cadastraUsina(u);
-									}
+						String nome =sc.next();
+						double producao = Double.parseDouble(sc.next());
+						double custo = Double.parseDouble(sc.next());
+						String fonte = sc.next();
+						int durabilidade = Integer.parseInt(sc.next());
+						Usina u = new UsinaNaoRenovavel(nome, producao, custo, fonte, durabilidade);
+						u.calculaPrecoMWh();
+						conglomerado.cadastraUsina(u);
+					}
                 
             
                 }
@@ -174,10 +185,11 @@ public class ACMEEnergy {
         }
         return true;
     }
+
 	private void listaTodasUsinas() {
 		ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
 		for(Usina u : usinas){
-			System.out.println( u.geraResumo());
+			System.out.println(u.geraResumo());
 		}
 	}
 
@@ -207,4 +219,7 @@ public class ACMEEnergy {
 		System.out.println("Opcao desejada: ");
 		
 	}
+
+
+
 }

@@ -5,7 +5,5 @@ public class Main {
 	ACMEEnergy acme = new ACMEEnergy();
 		//acme.inicializa();
 		acme.executa();
-			
 	}
-
 }

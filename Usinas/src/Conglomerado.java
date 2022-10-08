@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.lang.model.util.ElementScanner14;
-
 public class Conglomerado {
 
 	private ArrayList<Usina> usinas;
@@ -27,7 +25,7 @@ public class Conglomerado {
 	}
 
 	public ArrayList<Usina> listaTodasUsinas() {
-		return usinas;
+		return (ArrayList<Usina>)usinas.clone();
 	}
 
 	public double consultaPreco(String nome) {
