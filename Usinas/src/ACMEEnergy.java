@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
@@ -23,16 +25,16 @@ public class ACMEEnergy {
 
 	public void inicializa() {		
 	Usina u;
-		u = new UsinaNaoRenovavel("Dona Francisca", 300, 1000, "Carvão", 30);
+		u = new UsinaNaoRenovavel("Dona Francisca", 300, 1000, "Carvao", 30);
 		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
-		u = new UsinaRenovavel("Boca Do Inferno", 100, 3000, "Eólica");
+		u = new UsinaRenovavel("Boca Do Inferno", 100, 3000, "Eolica");
 		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
-		u = new UsinaRenovavel("Santa Maria", 200, 2000, "Hídrica");
+		u = new UsinaRenovavel("Santa Maria", 200, 2000, "Hidrica");
 		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
-		u= new UsinaRenovavel("Passo Real", 200, 2000, "Hídrica");
+		u= new UsinaRenovavel("Passo Real", 200, 2000, "Hidrica");
 		u.calculaPrecoMWh();
 		conglomerado.cadastraUsina(u);
 	}
@@ -62,6 +64,9 @@ public class ACMEEnergy {
 				case 5:
 					salvaDadosArquivo();
 					break;
+				case 6:
+					lerArquivo();
+					break;
 				default:
 					System.out.println("Opcao invalida.");
 					break;
@@ -74,7 +79,7 @@ public class ACMEEnergy {
 		System.out.println("Bem vindo ao Cadastro de Usinas");
 		System.out.println("Digite o Nome da Usina: ");
 		String nome = entrada.nextLine();
-		System.out.println("Digite a producao: ");
+		System.out.println("Digite a producao MWh: ");
 		double producao= entrada.nextDouble();
 		System.out.println("Digite o custo do MWh: ");
 		double custo= entrada.nextDouble();
@@ -105,7 +110,7 @@ public class ACMEEnergy {
 	ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
 	System.out.println("Digite o nome do Arquivo");
 	String nomeArquivo = entrada.nextLine();
-	entrada.nextLine();
+	// entrada.nextLine();
 	Path path = Paths.get(nomeArquivo);
 	try(PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path,Charset.defaultCharset()))) {
 		for (Usina u : usinas) {
@@ -125,7 +130,50 @@ public class ACMEEnergy {
 		System.out.println("O preço do MWh da Usina: "+ nome + " é de R$: " + conglomerado.consultaPreco(nome));
 	
 	}
-
+    /**
+     * Leitura de arquivo (usando java.io)
+     * @param nomeArquivo nome do arquivo
+     * @return true se leu; false em caso contrario
+     */
+    public boolean lerArquivo() {
+        try {
+			System.out.println("Digite o nome do Arquivo");
+			String nomeArquivo = entrada.nextLine();	
+            FileReader fr = new FileReader(nomeArquivo);
+            BufferedReader br = new BufferedReader(fr);
+            String linha = "";
+            while ((linha = br.readLine()) != null) {
+                Scanner sc = new Scanner(linha).useDelimiter(";");
+                	int numero = Integer.parseInt(sc.next());
+					if(numero == 1){
+					String nome =sc.next();
+					double producao = Double.parseDouble(sc.next());
+					double custo = Double.parseDouble(sc.next());
+					String fonte = sc.next();
+					Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
+					u.calculaPrecoMWh();
+					conglomerado.cadastraUsina(u);
+					}else{
+					String nome =sc.next();
+					double producao = Double.parseDouble(sc.next());
+					double custo = Double.parseDouble(sc.next());
+					String fonte = sc.next();
+					int durabilidade = Integer.parseInt(sc.next());
+					Usina u = new UsinaNaoRenovavel(nome, producao, custo, fonte, durabilidade);
+					u.calculaPrecoMWh();
+					conglomerado.cadastraUsina(u);
+									}
+                
+            
+                }
+            br.close();
+        }
+        catch(IOException e) {
+            System.err.println("Erro:" + e);
+            return false;
+        }
+        return true;
+    }
 	private void listaTodasUsinas() {
 		ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
 		for(Usina u : usinas){
@@ -155,6 +203,7 @@ public class ACMEEnergy {
 		System.out.println("[3] Lista todas Usinas");
 		System.out.println("[4] Consultar preço do MWh por Usina");
 		System.out.println("[5] Salvar dados em Arquivo");
+		System.out.println("[6] Lê arquivo");
 		System.out.println("Opcao desejada: ");
 		
 	}

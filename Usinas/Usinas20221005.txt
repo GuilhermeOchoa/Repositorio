@@ -1,5 +1,0 @@
-2;Dona Francisca;300.0;1000.0;Carvão;30;1200.0
-1;Boca Do Inferno;100.0;3000.0;Eólica;3449.9999999999995
-1;Santa Maria;200.0;2000.0;Hídrica;3000.0
-1;Passo Real;200.0;2000.0;Hídrica;3000.0
-2;Garganta do Diabo;1000.0;200.0;Petr�leo;30;0.0
