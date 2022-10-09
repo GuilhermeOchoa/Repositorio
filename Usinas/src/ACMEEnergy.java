@@ -1,11 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -77,7 +69,7 @@ public class ACMEEnergy {
 		} while (opcao != 0);
 	}
 	
-	private void CadastraUsina() {
+	public void CadastraUsina() {
 		try {
 			System.out.println("Bem vindo ao Cadastro de Usinas!");
 			System.out.println("Digite o Nome da Usina: ");
@@ -105,31 +97,19 @@ public class ACMEEnergy {
 				u.calculaPrecoMWh();
 				conglomerado.cadastraUsina(u);
 			}
-		} catch (InputMismatchException e) {
-			System.out.println("Tipo de entrada de dados inválido");
+		} catch (Exception e) {
+			System.out.println("Tipo de entrada de dados inválido"+e.getMessage());
 		}
 			
-			
 	}
 
-	private void salvaDadosArquivo() {
-	ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
-	System.out.println("Digite o nome do Arquivo");
-	String nomeArquivo = entrada.nextLine();
-	// entrada.nextLine();
-	Path path = Paths.get(nomeArquivo);
-	try(PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path,Charset.defaultCharset()))) {
-		for (Usina u : usinas) {
-			writer.format(u.geraCsv());
-		}
-	}
-		catch (IOException e) {
-			System.err.format("Erro de E/S: %s%n", e);
-		}
-
+	public void salvaDadosArquivo() {
+		System.out.println("Digite o nome do Arquivo");
+		String nomeArquivo = entrada.nextLine();
+		conglomerado.salvaDadosArquivo(nomeArquivo);
 	}
 
-	private void consultaPreco() {
+	public void consultaPreco() {
 		System.out.println("======================================");
 		System.out.print("Digite o Nome da Usina: ");
 		String nome = entrada.nextLine();
@@ -146,54 +126,21 @@ public class ACMEEnergy {
      * @param nomeArquivo nome do arquivo
      * @return true se leu; false em caso contrario
      */
-    public boolean lerArquivo() {
-        try {
-			System.out.println("Digite o nome do Arquivo");
-			String nomeArquivo = entrada.nextLine();	
-            FileReader fr = new FileReader(nomeArquivo);
-            BufferedReader br = new BufferedReader(fr);
-            String linha = "";
-            while ((linha = br.readLine()) != null) {
-                Scanner sc = new Scanner(linha).useDelimiter(";");
-                	int numero = Integer.parseInt(sc.next());
-					if(numero == 1){
-						String nome =sc.next();
-						double producao = Double.parseDouble(sc.next());
-						double custo = Double.parseDouble(sc.next());
-						String fonte = sc.next();
-						Usina u = new UsinaRenovavel(nome, producao, custo, fonte);
-						u.calculaPrecoMWh();
-						conglomerado.cadastraUsina(u);
-					}else{
-						String nome =sc.next();
-						double producao = Double.parseDouble(sc.next());
-						double custo = Double.parseDouble(sc.next());
-						String fonte = sc.next();
-						int durabilidade = Integer.parseInt(sc.next());
-						Usina u = new UsinaNaoRenovavel(nome, producao, custo, fonte, durabilidade);
-						u.calculaPrecoMWh();
-						conglomerado.cadastraUsina(u);
-					}
-                
-            
-                }
-            br.close();
-        }
-        catch(IOException e) {
-            System.err.println("Erro:" + e);
-            return false;
-        }
-        return true;
+    public void lerArquivo() {
+       		System.out.println("Digite o nome do Arquivo");
+			String nomeArquivo = entrada.nextLine();
+			conglomerado.lerArquivo(nomeArquivo);	
+        
     }
 
-	private void listaTodasUsinas() {
+	public void listaTodasUsinas() {
 		ArrayList<Usina> usinas = conglomerado.listaTodasUsinas();
 		for(Usina u : usinas){
 			System.out.println(u.geraResumo());
 		}
 	}
 
-	private void pesquisaUsina() {
+	public void pesquisaUsina() {
 		System.out.println("======================================");
 		System.out.print("Digite o nome da Usina: ");
 		String nome = entrada.nextLine();
@@ -206,7 +153,7 @@ public class ACMEEnergy {
 
 	}
 
-	private void menu() {
+	public void menu() {
 		System.out.println("======================================");
 		System.out.println("Opcoes:");
 		System.out.println("[0] Sair do Sistema");
