@@ -106,7 +106,7 @@ public class ACMEEnergy {
 				conglomerado.cadastraUsina(u);
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("Tipo diferente do esperado para entrada de dados");
+			System.out.println("Tipo de entrada de dados inválido");
 		}
 			
 			
