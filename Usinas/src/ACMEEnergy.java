@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -98,7 +97,8 @@ public class ACMEEnergy {
 				conglomerado.cadastraUsina(u);
 			}
 		} catch (Exception e) {
-			System.out.println("Tipo de entrada de dados inválido"+e.getMessage());
+			System.out.println("Tipo de entrada de dados inválido: "+e.getMessage());
+			entrada.nextLine();
 		}
 			
 	}
