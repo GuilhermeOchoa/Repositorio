@@ -1,4 +1,4 @@
-public class IndicadoresCriminais {
+public class Indices {
     private String nome;
     private int homicidiosDolosos;
     private int totalVitimasHomicidiosDolosos;
@@ -16,7 +16,7 @@ public class IndicadoresCriminais {
     private int vitimasLesaoMorte;
     private int totalVitimasCvli;
 
-    public IndicadoresCriminais(String nome, int homicidiosDolosos, int totalVitimasHomicidiosDolosos, int latrocinios,
+    public Indices(String nome, int homicidiosDolosos, int totalVitimasHomicidiosDolosos, int latrocinios,
             int furtos, int abigeatos, int furtoVeiculo, int roubos, int rouboVeiculo, int estelionato,
             int delitosRelacionadosArmaMunicao, int entorpecentesPosse, int entorpecentesTrafico, int vitimasLatrocinio,
             int vitimasLesaoMorte, int totalVitimasCvli) {

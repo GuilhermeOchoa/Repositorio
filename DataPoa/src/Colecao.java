@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Colecao {
-    private ArrayList<IndicadoresCriminais> colecao;
+    private ArrayList<Indices> colecao;
 
     /**
      * @param indices
      * @return boolean
      */
-    public boolean cadastraColecao(IndicadoresCriminais indices) {
+    public boolean cadastraColecao(Indices indices) {
         return colecao.add(indices);
     }
 
-    public ArrayList<IndicadoresCriminais> consultaTodasCidades() {
-        return (ArrayList<IndicadoresCriminais>) colecao.clone();
+    public ArrayList<Indices> consultaTodasCidades() {
+        return (ArrayList<Indices>) colecao.clone();
     }
 
     /**
@@ -32,7 +32,7 @@ public class Colecao {
     public boolean salvaDadosArquivo(String nomeArquivo) {
 		Path path = Paths.get(nomeArquivo);
 	try(PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path,Charset.defaultCharset()))) {
-		for (IndicadoresCriminais i : colecao) {
+		for (Indices i : colecao) {
 			writer.format(i.geraCsv());
 		}
     }
@@ -60,8 +60,11 @@ public class Colecao {
                             int vitimasLatrocinio = Integer.parseInt(sc.next());
                             int vitimasLesaoMorte = Integer.parseInt(sc.next());
                             int totalVitimasCvli = Integer.parseInt(sc.next());                            
-                            Colecao u = new Colecao (nome, homicidiosDolosos, totalVitimasHomicidiosDolosos, latrocinios, furtos, abigeatos, furtoVeiculo, roubos, rouboVeiculo, estelionato, delitosRelacionadosArmaMunicao, entorpecentesPosse, entorpecentesTrafico, vitimasLatrocinio, vitimasLesaoMorte, totalVitimasCvli);
-                            cadastraColecao(u);
+                            Indices i =  new Indices(nome,homicidiosDolosos,totalVitimasHomicidiosDolosos,latrocinios,
+                            furtos,abigeatos,furtoVeiculo,roubos,rouboVeiculo,estelionato,
+                            delitosRelacionadosArmaMunicao,entorpecentesPosse,entorpecentesTrafico,vitimasLatrocinio,
+                            vitimasLesaoMorte,totalVitimasCvli);
+                            cadastraColecao(i);
                         }
     
 }
