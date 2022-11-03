@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Aplicacao {
     private Colecao colecao;
@@ -6,6 +9,7 @@ public class Aplicacao {
 
     public Aplicacao() {
         entrada = new Scanner(System.in);
+        colecao = new Colecao();
     }
 
 
@@ -56,6 +60,13 @@ public class Aplicacao {
 
 
     private void consultaTodos() {
+        ArrayList<Indice> lista = colecao.consultaTodasCidades();
+        System.out.println("\n====================");
+        System.out.println("3: Mostrar todos os dados");
+        lista.stream()
+        .map(p-> p.geraCsv())
+        .forEach(System.out::println);
+        
     }
 
 

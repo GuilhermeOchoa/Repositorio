@@ -1,4 +1,4 @@
-public class Indices {
+public class Indice {
     private String nome;
     private int homicidiosDolosos;
     private int totalVitimasHomicidiosDolosos;
@@ -16,7 +16,7 @@ public class Indices {
     private int vitimasLesaoMorte;
     private int totalVitimasCvli;
 
-    public Indices(String nome, int homicidiosDolosos, int totalVitimasHomicidiosDolosos, int latrocinios,
+    public Indice(String nome, int homicidiosDolosos, int totalVitimasHomicidiosDolosos, int latrocinios,
             int furtos, int abigeatos, int furtoVeiculo, int roubos, int rouboVeiculo, int estelionato,
             int delitosRelacionadosArmaMunicao, int entorpecentesPosse, int entorpecentesTrafico, int vitimasLatrocinio,
             int vitimasLesaoMorte, int totalVitimasCvli) {
@@ -166,9 +166,9 @@ public class Indices {
         this.totalVitimasCvli = totalVitimasCvli;
     }
     public String geraCsv() {
-        String descricao = "2";
-        descricao += ";"+ nome;
-        descricao += ";" + totalVitimasHomicidiosDolosos;
+        String descricao = nome;
+        descricao += ";"+ homicidiosDolosos;
+        descricao += ";"+ totalVitimasHomicidiosDolosos;
         descricao += ";"+ latrocinios;
         descricao += ";"+ furtos;
         descricao += ";"+ abigeatos;
@@ -181,7 +181,8 @@ public class Indices {
         descricao += ";"+ entorpecentesTrafico;
         descricao += ";"+ vitimasLatrocinio;
         descricao += ";"+ vitimasLesaoMorte;
-        descricao += ";"+ totalVitimasCvli +"\n";
+        descricao += ";"+ totalVitimasCvli;
         return descricao;
+    }
 
 }
