@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Colecao {
     private ArrayList<Indice> colecao;
 
@@ -23,6 +24,9 @@ public class Colecao {
      */
     public boolean cadastraColecao(Indice indice) {
         return colecao.add(indice);
+    }
+    public String consultaNome(String nome){
+        return nome;
     }
 
     public ArrayList<Indice> consultaTodasCidades() {

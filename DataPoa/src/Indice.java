@@ -42,129 +42,67 @@ public class Indice {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    
     public int getHomicidiosDolosos() {
         return homicidiosDolosos;
-    }
-
-    public void setHomicidiosDolosos(int homicidiosDolosos) {
-        this.homicidiosDolosos = homicidiosDolosos;
     }
 
     public int getTotalVitimasHomicidiosDolosos() {
         return totalVitimasHomicidiosDolosos;
     }
 
-    public void setTotalVitimasHomicidiosDolosos(int totalVitimasHomicidiosDolosos) {
-        this.totalVitimasHomicidiosDolosos = totalVitimasHomicidiosDolosos;
-    }
-
     public int getLatrocinios() {
         return latrocinios;
-    }
-
-    public void setLatrocinios(int latrocinios) {
-        this.latrocinios = latrocinios;
     }
 
     public int getFurtos() {
         return furtos;
     }
 
-    public void setFurtos(int furtos) {
-        this.furtos = furtos;
-    }
-
     public int getAbigeatos() {
         return abigeatos;
-    }
-
-    public void setAbigeatos(int abigeatos) {
-        this.abigeatos = abigeatos;
     }
 
     public int getFurtoVeiculo() {
         return furtoVeiculo;
     }
 
-    public void setFurtoVeiculo(int furtoVeiculo) {
-        this.furtoVeiculo = furtoVeiculo;
-    }
-
     public int getRoubos() {
         return roubos;
-    }
-
-    public void setRoubos(int roubos) {
-        this.roubos = roubos;
     }
 
     public int getRouboVeiculo() {
         return rouboVeiculo;
     }
 
-    public void setRouboVeiculo(int rouboVeiculo) {
-        this.rouboVeiculo = rouboVeiculo;
-    }
-
     public int getEstelionato() {
         return estelionato;
-    }
-
-    public void setEstelionato(int estelionato) {
-        this.estelionato = estelionato;
     }
 
     public int getDelitosRelacionadosArmaMunicao() {
         return delitosRelacionadosArmaMunicao;
     }
 
-    public void setDelitosRelacionadosArmaMunicao(int delitosRelacionadosArmaMunicao) {
-        this.delitosRelacionadosArmaMunicao = delitosRelacionadosArmaMunicao;
-    }
-
     public int getEntorpecentesPosse() {
         return entorpecentesPosse;
-    }
-
-    public void setEntorpecentesPosse(int entorpecentesPosse) {
-        this.entorpecentesPosse = entorpecentesPosse;
     }
 
     public int getEntorpecentesTrafico() {
         return entorpecentesTrafico;
     }
 
-    public void setEntorpecentesTrafico(int entorpecentesTrafico) {
-        this.entorpecentesTrafico = entorpecentesTrafico;
-    }
-
     public int getVitimasLatrocinio() {
         return vitimasLatrocinio;
     }
 
-    public void setVitimasLatrocinio(int vitimasLatrocinio) {
-        this.vitimasLatrocinio = vitimasLatrocinio;
-    }
-
-    public int getVitimasLesaoMorte() {
+     public int getVitimasLesaoMorte() {
         return vitimasLesaoMorte;
-    }
-
-    public void setVitimasLesaoMorte(int vitimasLesaoMorte) {
-        this.vitimasLesaoMorte = vitimasLesaoMorte;
     }
 
     public int getTotalVitimasCvli() {
         return totalVitimasCvli;
     }
 
-    public void setTotalVitimasCvli(int totalVitimasCvli) {
-        this.totalVitimasCvli = totalVitimasCvli;
-    }
     public String geraCsv() {
         String descricao = nome;
         descricao += ";"+ homicidiosDolosos;
@@ -181,8 +119,15 @@ public class Indice {
         descricao += ";"+ entorpecentesTrafico;
         descricao += ";"+ vitimasLatrocinio;
         descricao += ";"+ vitimasLesaoMorte;
-        descricao += ";"+ totalVitimasCvli;
+        descricao += ";"+ totalVitimasCvli+"\n";
         return descricao;
+    }
+    @Override
+    public String toString(){
+        return nome+";"+homicidiosDolosos+";"+totalVitimasHomicidiosDolosos+";"+latrocinios+";"+
+        furtos +";"+ abigeatos+";"+furtoVeiculo+";"+roubos+";"+rouboVeiculo+";"+estelionato+";"+
+        delitosRelacionadosArmaMunicao+";"+entorpecentesPosse+";"+entorpecentesTrafico+";"+
+        vitimasLatrocinio+";"+vitimasLesaoMorte+";"+totalVitimasCvli;
     }
 
 }
