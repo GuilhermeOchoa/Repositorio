@@ -1,3 +1,4 @@
+package dados;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,7 +10,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/* 
+ * Classe catálogo de indices crimais por cidade
+ */
 
 public class Colecao {
     private ArrayList<Indice> colecao;
@@ -25,9 +28,12 @@ public class Colecao {
     public boolean cadastraColecao(Indice indice) {
         return colecao.add(indice);
     }
-    public String consultaNome(String nome){
-        return nome;
-    }
+    // public list<Indice> consultaNome(String nome){
+    //    return colecao.stream()
+    //             .filter(p-> p.getNome().contains(nome))
+    //             .collect(Collectors.toList());
+      
+    //      }
 
     public ArrayList<Indice> consultaTodasCidades() {
         return (ArrayList<Indice>) colecao.clone();
@@ -40,6 +46,10 @@ public class Colecao {
     public boolean salvaDadosArquivo(String nomeArquivo) {
         Path path = Paths.get(nomeArquivo);
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path, Charset.defaultCharset()))) {
+            /* 
+             * Escrever código para salvar coleção gerada na última consulta.
+             */
+            
             for (Indice i : colecao) {
                 writer.format(i.geraCsv());
             }

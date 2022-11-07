@@ -1,3 +1,4 @@
+package dados;
 public class Indice {
     private String nome;
     private int homicidiosDolosos;
@@ -104,7 +105,8 @@ public class Indice {
     }
 
     public String geraCsv() {
-        String descricao = nome;
+        String descricao = "";
+        descricao += nome;
         descricao += ";"+ homicidiosDolosos;
         descricao += ";"+ totalVitimasHomicidiosDolosos;
         descricao += ";"+ latrocinios;
@@ -128,6 +130,26 @@ public class Indice {
         furtos +";"+ abigeatos+";"+furtoVeiculo+";"+roubos+";"+rouboVeiculo+";"+estelionato+";"+
         delitosRelacionadosArmaMunicao+";"+entorpecentesPosse+";"+entorpecentesTrafico+";"+
         vitimasLatrocinio+";"+vitimasLesaoMorte+";"+totalVitimasCvli;
+    }
+    public String geraResumo() {
+        String descricao = "";
+        descricao +="Cidade: " +nome +"\n";
+        descricao += "Qtd homicidios dolosos: "+ homicidiosDolosos +"\n";
+        descricao += "Qtd total de vitimas de homicidios dolosos: "+ totalVitimasHomicidiosDolosos +"\n";
+        descricao += "Qtd latrocinio: "+ latrocinios +"\n";
+        descricao += "Qtd furtos: "+ furtos +"\n";
+        descricao += "Qtd abigeatos: "+ abigeatos +"\n";
+        descricao += "Qtd furto de veiculos: "+ furtoVeiculo +"\n";
+        descricao += "Qtd roubos: "+ roubos +"\n";
+        descricao += "Qtd de roubo de veiculos: "+ rouboVeiculo +"\n";
+        descricao += "Qtd Estelionato: "+ estelionato +"\n";
+        descricao += "Qtd delitos relacionados a armas e munição: "+ delitosRelacionadosArmaMunicao +"\n";
+        descricao += "Qtd Posse de entorpecentes: "+ entorpecentesPosse +"\n";
+        descricao += "Qtd Tráfico de entorpecentes: "+ entorpecentesTrafico +"\n";
+        descricao += "Qtd vitimas de latrocinio: "+ vitimasLatrocinio +"\n";
+        descricao += "Qtd Vitimas de morte por lesão: "+ vitimasLesaoMorte +"\n";
+        descricao += "Qtd total de vitimas CVLI: "+ totalVitimasCvli+"\n";
+        return descricao;
     }
 
 }
