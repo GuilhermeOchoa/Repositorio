@@ -21,41 +21,45 @@ public class Aplicacao {
 	}
 
 	public void executa() {
-
-		int opcao;
+		int opcao=6;
 		do {
 			menu();
-			opcao = entrada.nextInt();
-			entrada.nextLine();
-			switch (opcao) {
-				case 0:
-					break;
-				case 1:
-					carregarDados();
-					break;
-				case 2:
-					classificaNome();
-					break;
-				case 3:
-					consultaTodos();
-					break;
-				case 4:
-					consultaNomeIncompleto();
-					break;
-				case 5:
-					salvaDadosArquivo();
-					break;
-				case 6:
-					// lerArquivo();
-					break;
-				default:
-					System.out.println("Opcao invalida.");
-					break;
-			}
+			try{
+				opcao = entrada.nextInt();				
+				entrada.nextLine();
+			
+				switch (opcao) {
+					case 0:
+						break;
+					case 1:
+						carregarDados();
+						break;
+					case 2:
+						classificaNome();
+						break;
+					case 3:
+						consultaTodos();
+						break;
+					case 4:
+						consultaNomeIncompleto();
+						break;
+					case 5:
+						salvaDadosArquivo();
+						break;
+					default:
+						System.out.println("Opcao invalida.");
+						break;
+					}
+				}catch(Exception e){
+					System.out.println("Entrada Invalida: "+e.getMessage());
+					entrada.nextLine();
+				}
+							
 		} while (opcao != 0);
+
 	}
 
-	private void salvaDadosArquivo() {
+	private boolean salvaDadosArquivo() {
 		System.out.println("Digite o nome do Arquivo");
 		String nomeArquivo = entrada.next();
 		entrada.nextLine();
@@ -63,6 +67,7 @@ public class Aplicacao {
 			System.out.println("Arquivo gravado");
 		else
 			System.out.println("Erro na gravacao do arquivo");
+		return false;
 	}
 
 	private void consultaNomeIncompleto() {
@@ -70,27 +75,38 @@ public class Aplicacao {
 		System.out.print("Digite um nome incompleto de Cidade: ");
 		String nome = entrada.nextLine();
 		ArrayList<Indice> lista = colecao.consultaTodasCidades();
+		colecao.limpaUltimaConsuta();
+		if (lista.size() == 0)
+			System.out.print("Nenhuma cidade encontrada com o nome digitado :" + nome + "\n");
+		else
+			System.out.print("Cidades encontradas com o nome digitado :" + nome + "\n");
 		List<Indice> nomeIncompleto = lista.stream()
 				.filter(p -> p.getNome().contains(nome.toUpperCase()))
 				.collect(Collectors.toList());
 		nomeIncompleto.forEach(p -> System.out.println(p.geraResumo()));
+		colecao.cadastraUltimaconsulta((ArrayList<Indice>) nomeIncompleto);
+
 	}
 
 	private void consultaTodos() {
 		ArrayList<Indice> lista = colecao.consultaTodasCidades();
+		colecao.limpaUltimaConsuta();
+		colecao.cadastraUltimaconsulta(lista);
 		if (lista.size() == 0)
 			System.out.println("Erro. Não há dados na coleção");
 		else {
 			System.out.println("Resultado da consulta de todos dados:");
-			lista.stream()
-					.forEach(System.out::println);
+			List<Indice> nomeIncompleto = lista.stream()
+					.collect(Collectors.toList());
+			nomeIncompleto.forEach(p -> System.out.println(p.geraResumo()));
 		}
 	}
 
 	private void classificaNome() {
 		ArrayList<Indice> lista = colecao.consultaTodasCidades();
-		System.out.println("Digite 1 para ordem crescente ou 2 para ordem decresente");
-		int n = entrada.nextInt();
+		System.out.println("Digite 1 para ordem crescente ou 2 para ordem decrescente");
+		try{
+			int n = entrada.nextInt();
 		if (n == 1) {
 			Collections.sort(lista,
 					(Indice u1, Indice u2) -> u1.getNome().compareTo(u2.getNome()));
@@ -101,12 +117,14 @@ public class Aplicacao {
 		}
 		lista.stream()
 				.forEach(System.out::println);
+	}catch(Exception e){
+		entrada.nextInt();
+	}
 	}
 
 	private void carregarDados() {
 		System.out.println("Digite o nome do Arquivo");
 		String nomeArquivo = entrada.nextLine();
-		entrada.nextLine();
 		colecao.lerArquivo(nomeArquivo);
 	}
 

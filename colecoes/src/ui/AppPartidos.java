@@ -2,8 +2,6 @@ package ui;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
-
 import dados.Candidato;
 import dados.Partido;
 

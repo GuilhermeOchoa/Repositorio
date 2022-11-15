@@ -10,15 +10,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
-/* 
- * Classe catálogo de indices crimais por cidade
- */
 
 public class Colecao {
     private ArrayList<Indice> colecao;
+    private ArrayList<Indice> ultimaconsulta;
 
+    
     public Colecao() {
         colecao = new ArrayList<Indice>();
+        ultimaconsulta = new ArrayList<Indice>();
     }
 
     /**
@@ -28,13 +28,19 @@ public class Colecao {
     public boolean cadastraColecao(Indice indice) {
         return colecao.add(indice);
     }
-    // public list<Indice> consultaNome(String nome){
-    //    return colecao.stream()
-    //             .filter(p-> p.getNome().contains(nome))
-    //             .collect(Collectors.toList());
-      
-    //      }
 
+    /**
+     * @param indice
+     * @return boolean
+     * Funciona como buffer Armazenando sempre a ultima consulta feita 
+     */
+    public void cadastraUltimaconsulta(ArrayList<Indice> indice) {
+     ultimaconsulta = indice;
+    }
+    public void limpaUltimaConsuta(){
+        ultimaconsulta.clear();
+
+    }
     public ArrayList<Indice> consultaTodasCidades() {
         return (ArrayList<Indice>) colecao.clone();
     }
@@ -50,7 +56,7 @@ public class Colecao {
              * Escrever código para salvar coleção gerada na última consulta.
              */
             
-            for (Indice i : colecao) {
+            for (Indice i : ultimaconsulta) {
                 writer.format(i.geraCsv());
             }
         } catch (IOException e) {
