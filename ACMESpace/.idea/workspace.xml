@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="532a7ee3-0cff-4813-8ba2-88c462d39249" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/teste.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/teste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/ACMESpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/ACMESpace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/EspacoPorto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/EspacoPorto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Espaconave.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Espaconave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Pessoa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Transporte.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Transporte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/material.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ACMESpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ACMESpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/EspacoPorto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/EspacoPorto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Espaconave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Espaconave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Pessoa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Transporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Transporte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/material.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HeWjkoapT7GKdrvZoYy2XQy0ij" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Repositorio/ACMESpace",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="532a7ee3-0cff-4813-8ba2-88c462d39249" name="Changes" comment="" />
+      <created>1668646166499</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668646166499</updated>
+      <workItem from="1668646168137" duration="188000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
