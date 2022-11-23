@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94deeb9e-d285-4d65-967b-9839dc7620eb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ACMESpace/ACMESpace.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/controller/ACMESpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/controller/ACMESpace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/EspacoPorto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/model/EspacoPorto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/Espaconave.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/model/Espaconave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/Pessoa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/Transporte.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/model/Transporte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/material.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/controller/ACMESpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/controller/ACMESpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/EspacoPorto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/model/EspacoPorto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/Espaconave.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/model/Espaconave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/Pessoa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/Transporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/model/Transporte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/material.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gui30/Minhajanela.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gui30/Minhajanela.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HEsM2Th6bxs5JBwiFup6qW7coY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Repositorio/gui30",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="gui30" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94deeb9e-d285-4d65-967b-9839dc7620eb" name="Changes" comment="" />
+      <created>1667861525670</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667861525670</updated>
+      <workItem from="1667861527226" duration="446000" />
+      <workItem from="1668040356535" duration="379000" />
+      <workItem from="1668647013167" duration="259000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -26,6 +26,10 @@ public class ACMESpace {
                     case 0:
                         cadastraNovoEspacoPorto();
                         break;
+                    case 1:
+                    cadastraNovaEspaconave();
+                    break;
+                    
                 
                     default:
                     System.out.println("Opcao invalida.");
@@ -40,6 +44,28 @@ public class ACMESpace {
         } while (opcao!=8);
 
     }
+
+    private void cadastraNovaEspaconave() {
+        System.out.println("Cadastro de nova Espaçonave "+"\n");
+        
+        
+        System.out.println("Digite o Nome do Espaçonave:");
+        String nome = entrada.next();
+        System.out.println("Digite a coordenada X: ");
+        double coordX = entrada.nextDouble();
+        System.out.println("Digite a coordenada Y: ");
+        double coordY = entrada.nextDouble();
+        System.out.println("Digite a coordenada Z: ");
+        double coordZ = entrada.nextDouble();
+        int numero = entrada.nextInt();
+        System.out.println("Escolha o tipo de espaçonave: 1- Subluz, 2- FTL ");
+
+        if(acmeCatalogo.cadastraEspacoPorto(new EspacoPorto(numero,nome,coordX,coordY,coordZ)))
+            System.out.println("Espaço porto cadastrado");
+        else
+            System.out.println("Espaço porto já existe");
+    }
+
 
     private void cadastraNovoEspacoPorto() {
         System.out.println("Cadastro de novo espaço porto! "+"\n");
