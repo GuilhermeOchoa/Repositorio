@@ -1,6 +1,6 @@
 package model;
 
 public enum Estados {
-    Pendente, Transportando, Cancelado,
-    Finalizado;
+    PENDENTE, TRANSPORTANDO, CANCELADO,
+    FINALIZADO;
 }

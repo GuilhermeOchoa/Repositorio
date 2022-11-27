@@ -1,14 +1,18 @@
 package model;
 
 public class EspaconaveFTL extends Espaconave{
-    private double velocidadeMaxima;
     private double quantidadeMaxima;
-    public EspaconaveFTL(String nome, double velocidadeMaxima, double quantidadeMaxima) {
-        super(nome);
-        this.velocidadeMaxima = velocidadeMaxima;
+   
+
+    public EspaconaveFTL(String nome, EspacoPorto localAtual, double velocidadeMaxima, double quantidadeMaxima) {
+        super(nome, localAtual, velocidadeMaxima);
         this.quantidadeMaxima = quantidadeMaxima;
     }
 
+    public EspaconaveFTL(String nome, double quantidadeMaxima) {
+        super(nome);
+        this.quantidadeMaxima = quantidadeMaxima;
+    }
 
     @Override
     public String toString() {
@@ -17,17 +21,6 @@ public class EspaconaveFTL extends Espaconave{
             ", quantidadeMaxima='" + getQuantidadeMaxima() + "'" +
             "}";
     }
-
-
-    public double getVelocidadeMaxima() {
-        return velocidadeMaxima;
-    }
-
-
-    public void setVelocidadeMaxima(double velocidadeMaxima) {
-        this.velocidadeMaxima = velocidadeMaxima;
-    }
-
 
     public double getQuantidadeMaxima() {
         return quantidadeMaxima;

@@ -2,31 +2,32 @@ package model;
 
 public class EspaconaveSubluz extends Espaconave{
     
-    private double velocidadeMaxima;
-    private String combustivel;
-
-    public enum combustivel{
-        Nuclear, Ion;
-    }
-    public EspaconaveSubluz(String nome, double velocidadeMaxima, String combustivel) {
-        super(nome);
-        this.velocidadeMaxima = velocidadeMaxima;
+    private Combustivel combustivel;
+    
+    public EspaconaveSubluz(String nome, EspacoPorto localAtual, double velocidadeMaxima, Combustivel combustivel) {
+        super(nome, localAtual, velocidadeMaxima);
         this.combustivel = combustivel;
     }
+    public EspaconaveSubluz(String nome, Combustivel combustivel) {
+        super(nome);
+        this.combustivel = combustivel;
+    }
+    
+    public enum Combustivel{
+        NUCLEAR, ION;
+    }
+
+    
+
     @Override
     public String toString() {
-        return "EspaconaveSubluz [velocidadeMaxima=" + velocidadeMaxima + ", combustivel=" + combustivel + "]";
+        return "EspaconaveSubluz [combustivel=" + combustivel + "]";
     }
-    public double getVelocidadeMaxima() {
-        return velocidadeMaxima;
-    }
-    public void setVelocidadeMaxima(double velocidadeMaxima) {
-        this.velocidadeMaxima = velocidadeMaxima;
-    }
-    public String getCombustivel() {
+   
+    public Combustivel getCombustivel() {
         return combustivel;
     }
-    public void setCombustivel(String combustivel) {
+    public void setCombustivel(Combustivel combustivel) {
         this.combustivel = combustivel;
     }
 

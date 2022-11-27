@@ -1,14 +1,30 @@
 package model;
-import java.util.Collection;
+import java.util.ArrayList;
 
 public class Espaconave {
 
 	private String nome;
 	private EspacoPorto localAtual;
-	private Collection<Transporte> transporte;
+	private ArrayList<Transporte> transporte;
+	private double velocidadeMaxima;
+
+	public Espaconave(String nome, EspacoPorto localAtual, double velocidadeMaxima) {
+		this.nome = nome;
+		this.localAtual = localAtual;
+		this.velocidadeMaxima = velocidadeMaxima;
+	}
+
 	public Espaconave(String nome) {
 
 	}
+
+	public double getVelocidadeMaxima() {
+		return velocidadeMaxima;
+	}
+
+	public void setVelocidadeMaxima(double velocidadeMaxima) {
+		this.velocidadeMaxima = velocidadeMaxima;
+	}	
 
 	public String getNome() {
 		return nome;
@@ -25,7 +41,9 @@ public class Espaconave {
 	public void setLocalAtual(EspacoPorto localAtual) {
 		this.localAtual = localAtual;
 	}
-
+	public ArrayList<Transporte> getTransporte() {
+		return transporte;
+	}
 	
 
 }
