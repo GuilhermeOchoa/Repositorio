@@ -7,6 +7,7 @@ import model.Combustiveis;
 import model.EspacoPorto;
 import model.EspaconaveFTL;
 import model.EspaconaveSubluz;
+import model.Estados;
 import model.Transporte;
 import model.TransporteMaterial;
 import model.TransportePessoa;
@@ -46,6 +47,15 @@ public class ACMESpace {
                     case 3:
                         consultaTodosTransportes();
                         break;
+                    case 4:
+                        alteraEstadoTransporte();
+                        break;
+                    case 5:
+                        carregarDadosInciais();
+                        break;
+                    case 6:
+                        designarTransporte();
+                        break;
                     
                     default:
                         System.out.println("Opcao invalida.");
@@ -59,6 +69,32 @@ public class ACMESpace {
 
         } while (opcao != 8);
 
+    }
+
+    private void designarTransporte() {
+        
+    }
+
+    private void carregarDadosInciais() {
+    }
+
+    private void alteraEstadoTransporte() {
+        System.out.println("Digite o identificador do transporte para alterar o Estado");
+        int identificador = entrada.nextInt();
+       Transporte peTransporte = transporte.pesquisaTransportePendentes(identificador);
+       System.out.println(peTransporte.toString());
+       System.out.println("Selecione o novo Estado para o Transporte :1- Pendente 2 - Transportando ");
+       int estado = entrada.nextInt();
+       switch (estado) {
+        case 1:
+            peTransporte.setEstado(Estados.PENDENTE);
+            break;
+        case 2 :
+            peTransporte.setEstado(Estados.TRANSPORTANDO);
+            break;       
+        default:
+            break;
+       }
     }
 
     private void consultaTodosTransportes() {
@@ -92,7 +128,7 @@ public class ACMESpace {
                     case 1:                
                         System.out.println("Digite a quantidade de PESSOAS que serão transportadas:");
                         int quantidadeP = entrada.nextInt();
-                            TransportePessoa t = new TransportePessoa(identificador, origem, destino, tipo, quantidadeP);
+                            TransportePessoa t = new TransportePessoa(identificador, origem, destino, tipo, quantidadeP,Estados.PENDENTE);
                             if(transporte.cadastraTransporte(t)){
                                 t.calculaCusto();
                                 t.calculaDistancia();
@@ -105,7 +141,7 @@ public class ACMESpace {
                         int quantidadeM = entrada.nextInt();
                         System.out.println("Digite a descrição do material que será transportado:");
                         String descricao = entrada.next();
-                        TransporteMaterial m = new TransporteMaterial(identificador, origem, destino, tipo, quantidadeM, descricao);
+                        TransporteMaterial m = new TransporteMaterial(identificador, origem, destino, tipo, quantidadeM, descricao,Estados.PENDENTE);
                             if(transporte.cadastraTransporte(m)){
                                 m.calculaCusto();
                                 m.calculaDistancia();
@@ -135,15 +171,17 @@ public class ACMESpace {
             case 1:
                 System.out.println("Selecione o Combustivel: N- Nuclear, I - Ion");
                 String combustivel = entrada.next().toUpperCase();
+                System.out.println("Digite um valor para velocidade máxima, menor que 0,3");
+                double velocidadeS = entrada.nextDouble();
                 switch (combustivel) {
                     case"N" :
-                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, 0.3, Combustiveis.NUCLEAR)))
+                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, velocidadeS, Combustiveis.NUCLEAR)))
                             System.out.println("Espaçonave cadastrada!");
                         else 
                             System.out.println("Espaçonave já existe!");
                         break;
                      case "I":
-                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, 0.3, Combustiveis.ION)))
+                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, velocidadeS, Combustiveis.ION)))
                             System.out.println("Espaçonave cadastrada!");
                         else
                              System.out.println("Espaçonave já existe!");
@@ -155,10 +193,10 @@ public class ACMESpace {
                 
             case 2:
             System.out.println("Digite a velocidade máxima Warp: ");
-            double velocidade = entrada.nextDouble();
+            double velocidadeF = entrada.nextDouble();
             System.out.println("Digite a quantidade máxima de pessoas ou carga:");
             double quantidade = entrada.nextDouble();
-            if(frota.cadastraEspaconave(new EspaconaveFTL(nome, localAtual, velocidade, quantidade)))
+            if(frota.cadastraEspaconave(new EspaconaveFTL(nome, localAtual, velocidadeF, quantidade)))
                 System.out.println("Espaçonave cadastrada");
             else
                 System.out.println("Espaçonave já existe");

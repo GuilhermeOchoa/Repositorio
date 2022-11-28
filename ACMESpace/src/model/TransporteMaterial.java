@@ -7,8 +7,8 @@ public class TransporteMaterial extends Transporte {
     private double custo;
     
     public TransporteMaterial(int identificador, EspacoPorto origem, EspacoPorto destino, int tipo, double quantidade,
-    String descricao) {
-            super(identificador, origem, destino, tipo);
+    String descricao, Estados estado) {
+            super(identificador, origem, destino, tipo,estado);
             this.quantidade = quantidade;
             this.descricao = descricao;
     }
@@ -16,7 +16,7 @@ public class TransporteMaterial extends Transporte {
 
     @Override
     public double calculaDistancia() {
-        
+
         super.setDistancia(distancia);
         return distancia;
     }

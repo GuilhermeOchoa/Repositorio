@@ -24,4 +24,7 @@ public class ACMEFrota {
         }
         return null;
     }
+    public ArrayList<Espaconave> retornaEspaconaves(){
+        return frota;
+    }
 }

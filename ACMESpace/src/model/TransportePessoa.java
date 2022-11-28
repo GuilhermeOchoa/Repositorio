@@ -8,8 +8,8 @@ public class TransportePessoa extends Transporte {
    
    
     public TransportePessoa(int identificador, EspacoPorto origem, EspacoPorto destino, int tipo,
-            int quantidadePessoas) {
-        super(identificador, origem, destino, tipo);
+            int quantidadePessoas, Estados estado) {
+        super(identificador, origem, destino, tipo,estado);
         this.quantidadePessoas = quantidadePessoas;
     }
 
