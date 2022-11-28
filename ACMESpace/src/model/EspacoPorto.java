@@ -14,6 +14,7 @@ public class EspacoPorto {
 		this.coordZ = coordZ;
 	}
 
+	
 	public int getNumero() {
 		return numero;
 	}
@@ -53,5 +54,17 @@ public class EspacoPorto {
 	public void setCoordZ(double coordZ) {
 		this.coordZ = coordZ;
 	}
+
+	@Override
+	public String toString() {
+		return "{" +
+			" numero= " + getNumero()  +
+			", nome= " + getNome() +
+			", coordX= " + getCoordX() + 
+			", coordY= " + getCoordY() +
+			", coordZ= " + getCoordZ() + 
+			"}";
+	}
+
 
 }

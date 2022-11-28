@@ -44,6 +44,16 @@ public class Espaconave {
 	public ArrayList<Transporte> getTransporte() {
 		return transporte;
 	}
+
+	@Override
+	public String toString() {
+		return "{" +
+			" nome= " + getNome() + 
+			", localAtual= " + getLocalAtual() + 
+			", transporte= " + getTransporte() + 
+			", velocidadeMaxima= " + getVelocidadeMaxima() +
+			"}";
+	}
 	
 
 }

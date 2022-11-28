@@ -21,6 +21,10 @@ public class ACMEPortos {
             if(e.getNumero()== numero)
             return e;
         }
-        return null;
+        return null;        
     }
+    public ArrayList<EspacoPorto> consultaPortos(){
+        return (ArrayList<EspacoPorto>)porto.clone();
+    }
+
 }

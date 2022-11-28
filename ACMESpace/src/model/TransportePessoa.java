@@ -3,8 +3,16 @@ package model;
 public class TransportePessoa extends Transporte {
    
     private int quantidadePessoas;
+    private double distancia;
+    private double custo;
    
    
+    public TransportePessoa(int identificador, EspacoPorto origem, EspacoPorto destino, int tipo,
+            int quantidadePessoas) {
+        super(identificador, origem, destino, tipo);
+        this.quantidadePessoas = quantidadePessoas;
+    }
+
     public TransportePessoa(int tipo, int identificador, EspacoPorto origem, EspacoPorto destino, Espaconave espaconave,
             double distancia, double custo) {
         super(tipo, identificador, origem, destino, espaconave, distancia, custo);
@@ -12,15 +20,17 @@ public class TransportePessoa extends Transporte {
 
     @Override
     public double calculaDistancia() {
-       // double distancia = 
+       super.setDistancia(distancia);
         return 0;
     }
 
     @Override
     public double calculaCusto() {
-        // TODO Auto-generated method stub
+        super.setCusto(custo);
         return 0;
     }
 
+
+   
     
 }

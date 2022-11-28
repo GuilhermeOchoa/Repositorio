@@ -16,9 +16,11 @@ public class ACMEFrota {
         return false;
     }
     public Espaconave pesquisaEspaconave(String nome){
-        for(Espaconave e:frota){
-            if(e.getNome()== nome)
-            return e;
+        for(Espaconave s:frota){
+            if(s.getNome().equals(nome)){
+                return s;
+            }
+                
         }
         return null;
     }

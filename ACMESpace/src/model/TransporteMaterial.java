@@ -3,6 +3,8 @@ package model;
 public class TransporteMaterial extends Transporte {
     private double quantidade;
     private String descricao;
+    private double distancia;
+    private double custo;
     
     public TransporteMaterial(int identificador, EspacoPorto origem, EspacoPorto destino, int tipo, double quantidade,
     String descricao) {
@@ -14,14 +16,15 @@ public class TransporteMaterial extends Transporte {
 
     @Override
     public double calculaDistancia() {
-        // TODO Auto-generated method stub
-        return 0;
+        
+        super.setDistancia(distancia);
+        return distancia;
     }
 
     @Override
     public double calculaCusto() {
-        // TODO Auto-generated method stub
-        return 0;
+        super.setCusto(custo);
+        return custo;
     }
     
 }

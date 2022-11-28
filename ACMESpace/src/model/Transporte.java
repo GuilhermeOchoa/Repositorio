@@ -52,6 +52,10 @@ public abstract class Transporte {
 		this.custo = custo;
 	}
 	public Transporte(int identificador, EspacoPorto origem, EspacoPorto destino, int tipo) {
+		this.identificador = identificador;
+		this.origem = origem;
+		this.destino = destino;
+		this.tipo = tipo;
 
 	}
 	public Transporte(int tipo, int identificador, EspacoPorto origem, EspacoPorto destino, Espaconave espaconave,
@@ -62,5 +66,19 @@ public abstract class Transporte {
 	public abstract double calculaDistancia();
 
 	public abstract double calculaCusto();
+
+	@Override
+	public String toString() {
+		return "{" +
+			" tipo=" + getTipo() + "" +
+			", identificador=" + getIdentificador() + "" +
+			", origem= " + getOrigem() + "" +
+			", destino= " + getDestino() + "" +
+			", espaconave= " + getEspaconave() + "" +
+			", distancia=" + getDistancia() + "" +
+			", custo=" + getCusto() + "" +
+			"}";
+	}
+
 
 }
