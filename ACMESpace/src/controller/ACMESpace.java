@@ -2,15 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import model.Combustiveis;
-import model.EspacoPorto;
-import model.EspaconaveFTL;
-import model.EspaconaveSubluz;
-import model.Estados;
-import model.Transporte;
-import model.TransporteMaterial;
-import model.TransportePessoa;
+import model.*;
+import util.Arquivos;
 
 public class ACMESpace {
 
@@ -18,22 +11,25 @@ public class ACMESpace {
     private ACMEFrota frota;
     private ACMEPortos porto;
     private Scanner entrada;
+    private Arquivos arquivos;
     
     public ACMESpace() {
         transporte = new ACMETransportes();
         frota = new ACMEFrota();
         porto = new ACMEPortos();        
         entrada = new Scanner(System.in);
+        arquivos = new Arquivos();
         
     }
 
     public void executa() {
-        int opcao = 9;
+        int opcao;
         do {
             menu();
+            opcao = entrada.nextInt();
+            entrada.nextLine();
             try {
-                opcao = entrada.nextInt();
-                entrada.nextLine();
+                
                 switch (opcao) {
                     case 0:
                         cadastraNovoEspacoPorto();
@@ -56,7 +52,11 @@ public class ACMESpace {
                     case 6:
                         designarTransporte();
                         break;
-                    
+                    case 7:
+                        salvarDados();
+                        break;    
+                    case 8:
+                        break;                    
                     default:
                         System.out.println("Opcao invalida.");
                         break;
@@ -71,30 +71,51 @@ public class ACMESpace {
 
     }
 
+    private void salvarDados() {
+    }
+
     private void designarTransporte() {
-        
+
     }
 
     private void carregarDadosInciais() {
+        System.out.println("Digite o nome do arquivo que deseja ler");
+        String file = entrada.nextLine();
+        arquivos.carregaArquivo(file);
+        ArrayList<EspacoPorto> portoclonado = arquivos.clonePortos();
+        porto.cadastradaClonados(portoclonado);
+
     }
 
     private void alteraEstadoTransporte() {
         System.out.println("Digite o identificador do transporte para alterar o Estado");
         int identificador = entrada.nextInt();
-       Transporte peTransporte = transporte.pesquisaTransportePendentes(identificador);
-       System.out.println(peTransporte.toString());
-       System.out.println("Selecione o novo Estado para o Transporte :1- Pendente 2 - Transportando ");
-       int estado = entrada.nextInt();
-       switch (estado) {
-        case 1:
-            peTransporte.setEstado(Estados.PENDENTE);
-            break;
-        case 2 :
-            peTransporte.setEstado(Estados.TRANSPORTANDO);
-            break;       
-        default:
-            break;
-       }
+        Transporte peTransporte = transporte.pesquisaTransportePendentes(identificador);
+        System.out.println(peTransporte.toString());
+        System.out.println("Selecione o novo Estado para o Transporte :1- PENDENTE, 2- TRANSPORTANDO, 3- CANCELADO, 4-FINALIZADO");
+        int estado = entrada.nextInt();
+        if((peTransporte.getEstado()!= Estados.CANCELADO)&&(peTransporte.getEstado()!= Estados.FINALIZADO)){
+            switch (estado) {
+                case 1:
+                    peTransporte.setEstado(Estados.PENDENTE);
+                    break;
+                case 2 :
+                    peTransporte.setEstado(Estados.TRANSPORTANDO);
+                    break;
+                case 3 :
+                    peTransporte.setEstado(Estados.CANCELADO);
+                    break;
+                case 4:
+                    peTransporte.setEstado(Estados.FINALIZADO);
+                    break;                
+                default:
+                   break;
+              }
+
+        }else{
+            System.out.println("Transporte com estados FINALIZADOS ou CANCELADOS não podem ser alterados");
+        }
+        
     }
 
     private void consultaTodosTransportes() {
@@ -171,7 +192,7 @@ public class ACMESpace {
             case 1:
                 System.out.println("Selecione o Combustivel: N- Nuclear, I - Ion");
                 String combustivel = entrada.next().toUpperCase();
-                System.out.println("Digite um valor para velocidade máxima, menor que 0,3");
+                System.out.println("Digite um valor para velocidade máxima, menor ou igual a 0,3 Warp");
                 double velocidadeS = entrada.nextDouble();
                 switch (combustivel) {
                     case"N" :

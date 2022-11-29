@@ -23,6 +23,10 @@ public class ACMEPortos {
         }
         return null;        
     }
+    public boolean cadastradaClonados(ArrayList<EspacoPorto> espacoPortos){
+        porto.addAll(espacoPortos);
+        return true;
+    }
     public ArrayList<EspacoPorto> consultaPortos(){
         return (ArrayList<EspacoPorto>)porto.clone();
     }
