@@ -2,13 +2,13 @@ package model;
 
 public class EspaconaveSubluz extends Espaconave{
     
-     private Combustiveis combustivel;
+     private String combustivel;
     
-    public EspaconaveSubluz(String nome, EspacoPorto localAtual, double velocidadeMaxima, Combustiveis combustivel) {
+    public EspaconaveSubluz(String nome, EspacoPorto localAtual, double velocidadeMaxima, String combustivel) {
         super(nome, localAtual, velocidadeMaxima);
         this.combustivel = combustivel;
     }
-    public EspaconaveSubluz(String nome, Combustiveis combustivel) {
+    public EspaconaveSubluz(String nome, String combustivel) {
         super(nome);
         this.combustivel = combustivel;
     }   
@@ -18,10 +18,10 @@ public class EspaconaveSubluz extends Espaconave{
         return "EspaconaveSubluz [combustivel=" + combustivel + "]";
     }
    
-    public Combustiveis getCombustivel() {
+    public String getCombustivel() {
         return combustivel;
     }
-    public void setCombustivel(Combustiveis combustivel) {
+    public void setCombustivel(String combustivel) {
         this.combustivel = combustivel;
     }
 

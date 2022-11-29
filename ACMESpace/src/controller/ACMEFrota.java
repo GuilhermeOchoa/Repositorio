@@ -24,6 +24,10 @@ public class ACMEFrota {
         }
         return null;
     }
+    public boolean cadastradaClonados(ArrayList<Espaconave> espaconaves){
+        frota.addAll(espaconaves);
+        return true;
+    }
     public ArrayList<Espaconave> retornaEspaconaves(){
         return frota;
     }

@@ -84,6 +84,8 @@ public class ACMESpace {
         arquivos.carregaArquivo(file);
         ArrayList<EspacoPorto> portoclonado = arquivos.clonePortos();
         porto.cadastradaClonados(portoclonado);
+        ArrayList<Espaconave> espaconaveclonado = arquivos.cloneEspaconaves();
+        frota.cadastradaClonados(espaconaveclonado);
 
     }
 
@@ -196,13 +198,13 @@ public class ACMESpace {
                 double velocidadeS = entrada.nextDouble();
                 switch (combustivel) {
                     case"N" :
-                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, velocidadeS, Combustiveis.NUCLEAR)))
+                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, velocidadeS, "NUCLEAR")))
                             System.out.println("Espaçonave cadastrada!");
                         else 
                             System.out.println("Espaçonave já existe!");
                         break;
                      case "I":
-                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, velocidadeS, Combustiveis.ION)))
+                        if(frota.cadastraEspaconave(new EspaconaveSubluz(nome,localAtual, velocidadeS, "ION")))
                             System.out.println("Espaçonave cadastrada!");
                         else
                              System.out.println("Espaçonave já existe!");
