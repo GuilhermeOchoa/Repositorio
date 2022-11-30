@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94deeb9e-d285-4d65-967b-9839dc7620eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACMESpace/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACMESpace/ACMESpace.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/controller/ACMESpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/controller/ACMESpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/EspacoPorto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/model/EspacoPorto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/Espaconave.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/model/Espaconave.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/Pessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/Transporte.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/bin/model/Transporte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/bin/model/material.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/controller/ACMESpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/controller/ACMESpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/EspacoPorto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/model/EspacoPorto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/Espaconave.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/model/Espaconave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/Pessoa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/Transporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ACMESpace/src/model/Transporte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ACMESpace/src/model/material.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gui30/Minhajanela.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gui30/Minhajanela.class" afterDir="false" />
-    </list>
+    <list default="true" id="94deeb9e-d285-4d65-967b-9839dc7620eb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +24,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Repositorio/gui30",
+    "last_opened_file_path": "C:/Repositorio/ACMESpace",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -76,6 +56,7 @@
       <workItem from="1667861527226" duration="446000" />
       <workItem from="1668040356535" duration="379000" />
       <workItem from="1668647013167" duration="259000" />
+      <workItem from="1669786332785" duration="12000" />
     </task>
     <servers />
   </component>

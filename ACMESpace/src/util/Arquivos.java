@@ -1,26 +1,28 @@
 package util;
 
+import model.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-
-import model.*;
+import java.util.stream.Collectors;
 
 public class Arquivos {
-    private ArrayList<Espaconave> frota = new ArrayList<>();
-    private ArrayList<EspacoPorto> espacoPortos = new ArrayList<>();
-    private ArrayList<Transporte> transportes = new ArrayList<>();
+    private ArrayList<Espaconave> frota = new ArrayList<Espaconave>();
+    private ArrayList<EspacoPorto> espacoPortos = new ArrayList<EspacoPorto>();
+    private ArrayList<Transporte> transportes = new ArrayList<Transporte>();
 
     public Arquivos() {
     }
@@ -162,20 +164,21 @@ public class Arquivos {
         }
     }
 
-    public void writeLocationJSON(ArrayList<EspacoPorto> list) {
-        String jsonPath = "src/res/espacoportos.json";
+    public void escreveEspacoportos(ArrayList<EspacoPorto> list, String nome) {
+        String jsonPath = "src/res/"+nome+"_EspacoPorto.json";
         JSONArray array = new JSONArray();
         try {
             for (int i = 0; list.size() > i; i++) {
                 EspacoPorto ePorto = list.get(i);
                 JSONObject json = new JSONObject();
-                json.put("Codigo", location.getCodigo());
-                json.put("Logradouro", location.getLogradouro());
-                json.put("Latitude", location.getLatitude());
-                json.put("Longitude", location.getLongitude());
-                array.put(json);
+                json.put("Numero", ePorto.getNumero());
+                json.put("Nome", ePorto.getNome());
+                json.put("CoordX", ePorto.getCoordX());
+                json.put("CoordY", ePorto.getCoordY());
+                json.put("CoordZ", ePorto.getCoordZ());
+                array.add(json);
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -186,6 +189,130 @@ public class Arquivos {
         }
     }
 
+    public void escreveEspaconaves(ArrayList<Espaconave> list, String nome)
+        {
+        String jsonPath = "src/res/"+nome+"_Espaconave.json";
+        JSONArray array = new JSONArray();
+        try {
+            for (int i = 0; list.size() > i; i++) {
+                Espaconave eNave = list.get(i);
+                if(eNave instanceof EspaconaveFTL){
+                    JSONObject json = new JSONObject();
+                    json.put("Nome", eNave.getNome());
+                    json.put("Espacoporto", eNave.getLocalAtual().getNumero());
+                    json.put("Velocidade", eNave.getVelocidadeMaxima());
+                    json.put("QuantidadeMaxima", ((EspaconaveFTL) eNave).getQuantidadeMaxima());
+                    array.add(json);
+                }else if(eNave instanceof EspaconaveSubluz){
+                    JSONObject json = new JSONObject();
+                    json.put("Nome", eNave.getNome());
+                    json.put("Espacoporto", eNave.getLocalAtual().getNumero());
+                    json.put("Velocidade", eNave.getVelocidadeMaxima());
+                    json.put("Combustivel", ((EspaconaveSubluz) eNave).getCombustivel());
+                    array.add(json);
+                }
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try (PrintWriter out = new PrintWriter(new FileWriter(jsonPath))) {
+            out.write(array.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void escreveTranportes(ArrayList<Transporte> list, String nome)
+    {
+    String jsonPath = "src/res/"+nome+"_Transporte.json";
+    JSONArray array = new JSONArray();
+    try {
+        for (int i = 0; list.size() > i; i++) {
+            Transporte eTransporte = list.get(i);
+            if(eTransporte instanceof TransporteMaterial){
+                JSONObject json = new JSONObject();
+                json.put("Identificador", eTransporte.getIdentificador());
+                json.put("Origem", eTransporte.getOrigem().getNumero());
+                json.put("Destino", eTransporte.getDestino().getNumero());
+                json.put("Quantidade", ((TransporteMaterial) eTransporte).getQuantidade());
+                json.put("Descricao", ((TransporteMaterial) eTransporte).getDescricao());
+                array.add(json);
+            }else if(eTransporte instanceof TransportePessoa){
+                JSONObject json = new JSONObject();
+                json.put("Identificador", eTransporte.getIdentificador());
+                json.put("Origem", eTransporte.getOrigem().getNumero());
+                json.put("Destino", eTransporte.getDestino().getNumero());
+                json.put("QuantidadePessoas", ((TransportePessoa) eTransporte).getQuantidadePessoas());
+                array.add(json);
+            }
+            
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    try (PrintWriter out = new PrintWriter(new FileWriter(jsonPath))) {
+        out.write(array.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+public ArrayList<EspacoPorto> leEportoJSON(String nomeArquivo) {
+    JSONParser jsonParser = new JSONParser();
+    ArrayList<EspacoPorto> ePortos = new ArrayList<EspacoPorto>();
+
+     try (FileReader reader = new FileReader("src/res/"+nomeArquivo+"_EspacoPorto.json")) {
+        Object obj = jsonParser.parse(reader);
+        JSONArray eportoList = (JSONArray) obj;
+        
+        eportoList.forEach(f -> { 
+            JSONObject deObject = (JSONObject) f;           
+          Long  numero= (long) deObject.get("Numero");
+           String nome = (String)deObject.get("Nome");
+           Double coordx = (Double) deObject.get("CoordX");
+           Double coordy = (Double) deObject.get("CoordY");
+           Double coordz = (Double) deObject.get("CoordZ");
+             
+            EspacoPorto espacoPorto = new EspacoPorto(numero.intValue(),nome,coordx,coordy,coordz);
+            ePortos.add(espacoPorto);
+         });
+
+    } catch (IOException | org.json.simple.parser.ParseException e) {
+        e.printStackTrace();
+    }
+    return ePortos;
+}
+
+public ArrayList<Espaconave> leEnaveJSON(ArrayList<EspacoPorto> espacoPorto,String nomeArquivo) {
+    JSONParser jsonParser = new JSONParser();
+    ArrayList<Espaconave> enave = new ArrayList<Espaconave>();
+
+     try (FileReader reader = new FileReader("src/res/"+nomeArquivo+"_Espaconave.json")) {
+        Object obj = jsonParser.parse(reader);
+        JSONArray enaveList = (JSONArray) obj;
+        
+        enaveList.forEach(f -> { 
+            JSONObject deObject = (JSONObject) f;           
+           String nome = (String)deObject.get("Nome");
+           int localatual = (int) deObject.get("EspacoPorto");
+           Double velocidade = (Double) deObject.get("Velocidade");
+           String combustivel = (String) deObject.get("Combustivel");
+
+           List<EspacoPorto> acharEporto = espacoPorto.stream().filter(
+                        l -> l.getNumero() == localatual
+                ).collect(Collectors.toList());
+             
+            Espaconave espaconave = new Espaconave(nome,acharEporto.get(0),velocidade);
+            enave.add(espaconave);
+         });
+
+    } catch (IOException | org.json.simple.parser.ParseException e) {
+        e.printStackTrace();
+    }
+    return enave;
+}
 
     public ArrayList<EspacoPorto> clonePortos() {
         return(ArrayList<EspacoPorto>) espacoPortos.clone();

@@ -62,8 +62,11 @@ public class ACMESpace {
                         salvarDados();
                         break;    
                     case 8:
-                    System.out.println("Saindo do programa!");
-                        break;                    
+                        carregarDados();
+                        break;
+                    case 9:
+                        System.out.println("Saindo do programa!");
+                            break;                                            
                     default:
                         System.out.println("Opcao invalida.");
                         break;
@@ -74,27 +77,39 @@ public class ACMESpace {
 
             }
 
-        } while (opcao != 8);
+        } while (opcao != 9);
+
+    }
+
+    private void carregarDados() {
+        System.out.println("Digite o nome do arquivo com os dados:");
+        String nomeArquivo = entrada.nextLine();
+        porto.cadastradaClonados(arquivos.leEportoJSON(nomeArquivo));
+        System.out.println("Arquivo de portos cadastrado");      
 
     }
 
     private void salvarDados() {
+        System.out.println("Digite o nome do arquivo");
+        String nome = entrada.nextLine();
+        arquivos.escreveEspacoportos(porto.consultaPortos(),nome);
+        arquivos.escreveEspaconaves(frota.retornaEspaconaves(),nome);
+        arquivos.escreveTranportes(transporte.historicoTransporte(),nome);
     }
 
     private void designarTransporte() {
         Transporte proximodafila = transporte.retiraUmFila();
         ArrayList<Espaconave> todasEsp = frota.retornaEspaconaves();
         ArrayList<Transporte> transporthist = transporte.historicoTransporte();
-        System.out.println("Proximo trasporte da fila de Pendentes: "+"\n" + proximodafila);
-        
+        System.out.println("Proximo trasporte da fila de Pendentes: "+"\n" + proximodafila);       
 
-        List<String> espaconaves = transporthist.stream()
-                        .filter(f-> f.getEspaconave()!=null)
-                        .map(f-> f.getEspaconave().getNome() + ",")
-                        .collect(Collectors.toList());
-                         System.out.println("Espaconaves designadas para transporte:");
-                         espaconaves.stream()
-                        .forEach(System.out::println);
+        // List<String> espaconaves = transporthist.stream()
+        //                 .filter(f-> f.getEspaconave()!=null)
+        //                 .map(f-> f.getEspaconave().getNome() + ",")
+        //                 .collect(Collectors.toList());
+        //                  System.out.println("Espaconaves designadas para transporte:");
+        //                  espaconaves.stream()
+        //                 .forEach(System.out::println);
         // System.out.println("Espaconaves livres para tranporte:");
         // todasEsp.stream()
         // .filter(f-> f.getNome())
@@ -105,6 +120,7 @@ public class ACMESpace {
         Espaconave espaconave = frota.pesquisaEspaconave(nome);
         proximodafila.setEspaconave(espaconave);
         Transporte historico = transporte.pesquisaHistoricoTransporte(proximodafila.getIdentificador());
+        transporte.cadastraTransporteDesignado(historico);
         System.out.println(historico.toString());
         historico.setEspaconave(espaconave);
     }
@@ -125,7 +141,7 @@ public class ACMESpace {
     private void alteraEstadoTransporte() {
         System.out.println("Digite o identificador do transporte para alterar o Estado");
         int identificador = entrada.nextInt();
-        Transporte peTransporte = transporte.pesquisaTransportePendentes(identificador);
+        Transporte peTransporte = transporte.historicoTransporte(identificador);
         System.out.println(peTransporte.toString());
         System.out.println("Selecione o novo Estado para o Transporte :1- PENDENTE, 2- TRANSPORTANDO, 3- CANCELADO, 4-FINALIZADO");
         int estado = entrada.nextInt();
@@ -298,7 +314,8 @@ public class ACMESpace {
         System.out.println("[5] Carregar dados iniciais");
         System.out.println("[6] Designar transporte");
         System.out.println("[7] Salvar dados");
-        System.out.println("[8] Sair do programa");
+        System.out.println("[8] Carregar dados");
+        System.out.println("[9] Sair do programa");
         System.out.println("Opcao desejada: ");
 
     }

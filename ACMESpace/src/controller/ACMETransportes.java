@@ -7,6 +7,7 @@ import model.Transporte;
 
 public class ACMETransportes {
     private Queue<Transporte> filaPendentes; 
+    private Queue<Transporte> filaDesignados; 
     private ArrayList<Transporte> historicoTransportes; 
 
     public void setFilaPendentes(Queue<Transporte> filaPendentes) {
@@ -22,6 +23,7 @@ public class ACMETransportes {
      */
     public ACMETransportes() {
        filaPendentes = new LinkedList <Transporte>();
+       filaDesignados = new LinkedList<Transporte>();
        historicoTransportes = new ArrayList<Transporte>();
 
     }    
@@ -56,7 +58,14 @@ public class ACMETransportes {
         }
         return null;
     }
-
+    public Queue<Transporte> listaTodosTransportesDesignados(){
+        return(Queue<Transporte>)filaDesignados;
+        
+    }
+    public boolean cadastraTransporteDesignado(Transporte transportec) {
+        historicoTransportes.add(transportec);
+         return filaDesignados.add(transportec);
+    }
     public Queue<Transporte> listaTodosTransportesPendetes(){
         return (Queue<Transporte>)filaPendentes;
     }

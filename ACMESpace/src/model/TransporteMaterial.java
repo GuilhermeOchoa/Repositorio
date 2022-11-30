@@ -3,6 +3,15 @@ package model;
 public class TransporteMaterial extends Transporte {
     private double quantidade;
     private String descricao;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public double getQuantidade() {
         return quantidade;
     }
@@ -10,10 +19,6 @@ public class TransporteMaterial extends Transporte {
     public void setQuantidade(double quantidade) {
         this.quantidade = quantidade;
     }
-
-    
-    
-    
 
     public TransporteMaterial(int identificador, EspacoPorto origem, EspacoPorto destino, Estados estado,
             double quantidade, String descricao) {
