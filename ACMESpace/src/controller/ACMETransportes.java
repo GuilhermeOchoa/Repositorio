@@ -6,21 +6,29 @@ import model.Transporte;
 
 
 public class ACMETransportes {
-    private Queue<Transporte> filaPendentes;    
-    private ArrayList<Transporte> listaTodosTransportes;
+    private Queue<Transporte> filaPendentes; 
+    private ArrayList<Transporte> historicoTransportes; 
+
+    public void setFilaPendentes(Queue<Transporte> filaPendentes) {
+        this.filaPendentes = filaPendentes;
+    }
+
+    public Transporte retiraUmFila() {
+        return filaPendentes.remove();
+    }   
 
     /**
      * Fila de transportes aguardando naves disponíveis
      */
     public ACMETransportes() {
        filaPendentes = new LinkedList <Transporte>();
-       listaTodosTransportes = new ArrayList<Transporte>();
+       historicoTransportes = new ArrayList<Transporte>();
 
     }    
     
     public boolean cadastraTransporte(Transporte transportec) {
         if(pesquisaTransportePendentes(transportec.getIdentificador())== null){
-            listaTodosTransportes.add(transportec);
+            historicoTransportes.add(transportec);
             return filaPendentes.add(transportec);
         }
         return false;
@@ -32,9 +40,25 @@ public class ACMETransportes {
         }
         return null;
     }
+    public boolean cadastradaClonados(ArrayList<Transporte> transportes){
+        historicoTransportes.addAll(transportes);
+        filaPendentes.addAll(transportes);
+        return true;
+    }
     
-    public ArrayList<Transporte> listaTodosTransportes(){
-        return(ArrayList<Transporte>)listaTodosTransportes.clone();
+    public ArrayList<Transporte> historicoTransporte(){
+        return(ArrayList<Transporte>)historicoTransportes.clone();
+    }
+    public Transporte pesquisaHistoricoTransporte(int identificador){
+        for(Transporte e:historicoTransportes){
+            if(e.getIdentificador() == identificador)
+            return e;
+        }
+        return null;
+    }
+
+    public Queue<Transporte> listaTodosTransportesPendetes(){
+        return (Queue<Transporte>)filaPendentes;
     }
     
 }

@@ -1,36 +1,44 @@
 package model;
 
 public class TransportePessoa extends Transporte {
-   
     private int quantidadePessoas;
-    private double distancia;
-    private double custo;
-   
-   
-    public TransportePessoa(int identificador, EspacoPorto origem, EspacoPorto destino, int tipo,
-            int quantidadePessoas, Estados estado) {
-        super(identificador, origem, destino, tipo,estado);
+    
+        
+
+    public TransportePessoa(int identificador, EspacoPorto origem, EspacoPorto destino, Estados estado,
+            int quantidadePessoas) {
+        super(identificador, origem, destino, estado);
         this.quantidadePessoas = quantidadePessoas;
     }
 
-    public TransportePessoa(int tipo, int identificador, EspacoPorto origem, EspacoPorto destino, Espaconave espaconave,
-            double distancia, double custo) {
-        super(tipo, identificador, origem, destino, espaconave, distancia, custo);
-    }  
-
     @Override
     public double calculaDistancia() {
-       super.setDistancia(distancia);
-        return 0;
+        double distancia = Math.sqrt(Math.pow((super.getDestino().getCoordX()-super.getOrigem().getCoordX()),2)
+        + Math.pow((super.getDestino().getCoordY()-super.getOrigem().getCoordY()), 2)+
+        +Math.pow((super.getDestino().getCoordZ()-super.getOrigem().getCoordZ()), 2));
+        
+        if(distancia<0.5){
+            distancia=distancia*1000000;
+        }else{
+            distancia=distancia*100;}
+            
+        super.setDistancia(distancia);
+
+        return distancia;
     }
 
     @Override
     public double calculaCusto() {
+        double custo = super.getDistancia()* quantidadePessoas * 100;
         super.setCusto(custo);
-        return 0;
+        return custo;
     }
 
+    public int getQuantidadePessoas() {
+        return quantidadePessoas;
+    }
 
-   
-    
+    public void setQuantidadePessoas(int quantidadePessoas) {
+        this.quantidadePessoas = quantidadePessoas;
+    }
 }

@@ -57,13 +57,13 @@ public class EspacoPorto {
 
 	@Override
 	public String toString() {
-		return "{" +
-			" numero= " + getNumero()  +
-			", nome= " + getNome() +
-			", coordX= " + getCoordX() + 
-			", coordY= " + getCoordY() +
-			", coordZ= " + getCoordZ() + 
-			"}";
+		return "[" +
+			"numero= " + getNumero()  +
+			",nome= " + getNome() +
+			",coordX= " + getCoordX() + 
+			",coordY= " + getCoordY() +
+			",coordZ= " + getCoordZ() + 
+			"]";
 	}
 
 

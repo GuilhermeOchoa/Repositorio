@@ -1,7 +1,13 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import model.*;
 import util.Arquivos;
 
@@ -23,13 +29,13 @@ public class ACMESpace {
     }
 
     public void executa() {
-        int opcao;
+        int opcao=9;
         do {
             menu();
-            opcao = entrada.nextInt();
-            entrada.nextLine();
+            
             try {
-                
+                opcao = entrada.nextInt();
+                entrada.nextLine();
                 switch (opcao) {
                     case 0:
                         cadastraNovoEspacoPorto();
@@ -56,6 +62,7 @@ public class ACMESpace {
                         salvarDados();
                         break;    
                     case 8:
+                    System.out.println("Saindo do programa!");
                         break;                    
                     default:
                         System.out.println("Opcao invalida.");
@@ -75,7 +82,31 @@ public class ACMESpace {
     }
 
     private void designarTransporte() {
+        Transporte proximodafila = transporte.retiraUmFila();
+        ArrayList<Espaconave> todasEsp = frota.retornaEspaconaves();
+        ArrayList<Transporte> transporthist = transporte.historicoTransporte();
+        System.out.println("Proximo trasporte da fila de Pendentes: "+"\n" + proximodafila);
+        
 
+        List<String> espaconaves = transporthist.stream()
+                        .filter(f-> f.getEspaconave()!=null)
+                        .map(f-> f.getEspaconave().getNome() + ",")
+                        .collect(Collectors.toList());
+                         System.out.println("Espaconaves designadas para transporte:");
+                         espaconaves.stream()
+                        .forEach(System.out::println);
+        // System.out.println("Espaconaves livres para tranporte:");
+        // todasEsp.stream()
+        // .filter(f-> f.getNome())
+        // .collect(Collectors.toList())
+        // .forEach(System.out::println);
+        System.out.println("Selecione uma Espaçonave: ");        
+        String nome = entrada.nextLine();
+        Espaconave espaconave = frota.pesquisaEspaconave(nome);
+        proximodafila.setEspaconave(espaconave);
+        Transporte historico = transporte.pesquisaHistoricoTransporte(proximodafila.getIdentificador());
+        System.out.println(historico.toString());
+        historico.setEspaconave(espaconave);
     }
 
     private void carregarDadosInciais() {
@@ -86,6 +117,8 @@ public class ACMESpace {
         porto.cadastradaClonados(portoclonado);
         ArrayList<Espaconave> espaconaveclonado = arquivos.cloneEspaconaves();
         frota.cadastradaClonados(espaconaveclonado);
+        ArrayList<Transporte> transportesclonado = arquivos.cloneTransportes();
+        transporte.cadastradaClonados(transportesclonado);
 
     }
 
@@ -122,7 +155,7 @@ public class ACMESpace {
 
     private void consultaTodosTransportes() {
         System.out.println("Consulta todos os trasportes:"+"\n");
-        ArrayList<Transporte> lista = transporte.listaTodosTransportes();
+        ArrayList<Transporte> lista = transporte.historicoTransporte();
         if(lista.size()>0)
         lista.stream()
             .forEach(System.out::println);
@@ -136,6 +169,7 @@ public class ACMESpace {
         int identificador =  entrada.nextInt();        
                 System.out.println("Espaçoportos disponíveis:");
                 ArrayList<EspacoPorto> todoPortos =  porto.consultaPortos();
+                if(todoPortos.size()>0){
                 for(EspacoPorto e:todoPortos){
                     System.out.println(e.toString());
                 }
@@ -151,10 +185,10 @@ public class ACMESpace {
                     case 1:                
                         System.out.println("Digite a quantidade de PESSOAS que serão transportadas:");
                         int quantidadeP = entrada.nextInt();
-                            TransportePessoa t = new TransportePessoa(identificador, origem, destino, tipo, quantidadeP,Estados.PENDENTE);
+                            TransportePessoa t = new TransportePessoa(identificador, origem, destino,Estados.PENDENTE,quantidadeP);
                             if(transporte.cadastraTransporte(t)){
-                                t.calculaCusto();
                                 t.calculaDistancia();
+                                t.calculaCusto();                                
                                 System.out.println("Transporte cadastrado.");
                                 System.out.println(t.toString());
                             }else{System.out.println("Existe transporte cadastrado com este identificador.");}               
@@ -164,10 +198,10 @@ public class ACMESpace {
                         int quantidadeM = entrada.nextInt();
                         System.out.println("Digite a descrição do material que será transportado:");
                         String descricao = entrada.next();
-                        TransporteMaterial m = new TransporteMaterial(identificador, origem, destino, tipo, quantidadeM, descricao,Estados.PENDENTE);
+                        TransporteMaterial m = new TransporteMaterial(identificador, origem, destino,Estados.PENDENTE,quantidadeM,descricao);
                             if(transporte.cadastraTransporte(m)){
-                                m.calculaCusto();
                                 m.calculaDistancia();
+                                m.calculaCusto();                                
                                 System.out.println("Transporte cadastrado.");
                                 System.out.println(m.toString());
                             }
@@ -177,11 +211,14 @@ public class ACMESpace {
                         break;
                     default:
                          break;
-        }
+                        }
+                    }      
+                    else{
+                        System.out.println("Sem espacosportos cadastrados para registrar transporte");
+                    }
 
 
-
-    }
+}
 
     private void cadastraNovaEspaconave() {
         EspacoPorto localAtual = new EspacoPorto(11, "Terra", 0, 0, 0);

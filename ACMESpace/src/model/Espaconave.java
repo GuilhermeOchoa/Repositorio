@@ -5,7 +5,7 @@ public class Espaconave {
 
 	private String nome;
 	private EspacoPorto localAtual;
-	private ArrayList<Transporte> transporte;
+	private ArrayList<Transporte> transporte = new ArrayList<Transporte>();
 	private double velocidadeMaxima;
 
 	public Espaconave(String nome, EspacoPorto localAtual, double velocidadeMaxima) {
@@ -14,7 +14,8 @@ public class Espaconave {
 		this.velocidadeMaxima = velocidadeMaxima;
 	}
 
-	public Espaconave(String nome) {
+	public Espaconave() {
+		
 
 	}
 
@@ -44,15 +45,18 @@ public class Espaconave {
 	public ArrayList<Transporte> getTransporte() {
 		return transporte;
 	}
+	public boolean setTransporte(Transporte transportep) {
+		return transporte.add(transportep);
+	}
 
 	@Override
 	public String toString() {
-		return "{" +
+		return "[" +
 			" nome= " + getNome() + 
 			", localAtual= " + getLocalAtual() + 
 			", transporte= " + getTransporte() + 
 			", velocidadeMaxima= " + getVelocidadeMaxima() +
-			"}";
+			"]";
 	}
 	
 

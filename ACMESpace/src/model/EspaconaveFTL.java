@@ -9,10 +9,7 @@ public class EspaconaveFTL extends Espaconave{
         this.quantidadeMaxima = quantidadeMaxima;
     }
 
-    public EspaconaveFTL(String nome, double quantidadeMaxima) {
-        super(nome);
-        this.quantidadeMaxima = quantidadeMaxima;
-    }
+    
 
     @Override
     public String toString() {
