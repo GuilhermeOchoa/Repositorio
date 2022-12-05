@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="532a7ee3-0cff-4813-8ba2-88c462d39249" name="Changes" comment="COMMIT 20221204">
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMEFrota.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMEPortos.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMESpace.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMETransportes.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/dados/TF-espaconaves.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/dados/TF-espacoportos.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/dados/TF-transportes.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Combustiveis.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/EspacoPorto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Espaconave.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/EspaconaveFTL.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/EspaconaveSubluz.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Estados.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Transporte.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/TransporteMaterial.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/TransportePessoa.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACMEE_EspacoPorto.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACMEE_Espaconave.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACMEE_Transporte.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACME_EspacoPorto.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACME_Espaconave.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACME_Transporte.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/TF_EspacoPorto.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/TF_Espaconave.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/TF_Transporte.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/util/Arquivos.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/util/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ACMESpace_GuilhermeOchoa.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Combustiveis.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Combustiveis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Combustiveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Combustiveis.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +101,7 @@
       <updated>1668646166499</updated>
       <workItem from="1668646168137" duration="188000" />
       <workItem from="1669786342708" duration="3231000" />
-      <workItem from="1670198627307" duration="1027000" />
+      <workItem from="1670198627307" duration="1625000" />
     </task>
     <task id="LOCAL-00001" summary="COMMIT 20221204">
       <created>1670199620243</created>
