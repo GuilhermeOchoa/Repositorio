@@ -5,7 +5,7 @@ public class EspaconaveFTL extends Espaconave{
    
 
     public EspaconaveFTL(String nome, EspacoPorto localAtual, double velocidadeMaxima, double quantidadeMaxima) {
-        super(nome, localAtual, velocidadeMaxima);
+        super();
         this.quantidadeMaxima = quantidadeMaxima;
     }
 

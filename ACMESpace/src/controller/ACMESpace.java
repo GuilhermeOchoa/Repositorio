@@ -141,7 +141,7 @@ public class ACMESpace {
     private void alteraEstadoTransporte() {
         System.out.println("Digite o identificador do transporte para alterar o Estado");
         int identificador = entrada.nextInt();
-        Transporte peTransporte = transporte.historicoTransporte(identificador);
+        Transporte peTransporte = transporte.pesquisaTransportePendentes(identificador);
         System.out.println(peTransporte.toString());
         System.out.println("Selecione o novo Estado para o Transporte :1- PENDENTE, 2- TRANSPORTANDO, 3- CANCELADO, 4-FINALIZADO");
         int estado = entrada.nextInt();
