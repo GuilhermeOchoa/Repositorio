@@ -2,22 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="532a7ee3-0cff-4813-8ba2-88c462d39249" name="Changes" comment="COMMIT 20221204">
-      <change afterPath="$PROJECT_DIR$/bin/dados/TF-espaconaves.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/dados/TF-espacoportos.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/dados/TF-transportes.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/res/TF_EspacoPorto.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/res/TF_Espaconave.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/res/TF_Transporte.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dados/TF-espaconaves.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dados/TF-espacoportos.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dados/TF-transportes.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/TF_EspacoPorto.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/TF_Espaconave.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/TF_Transporte.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/controller/ACMESpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/ACMESpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ACMESpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ACMESpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/EspaconaveFTL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/EspaconaveFTL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMEFrota.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMEPortos.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMESpace.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/controller/ACMETransportes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/dados/TF-espaconaves.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/dados/TF-espacoportos.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/dados/TF-transportes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Combustiveis.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/EspacoPorto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Espaconave.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/EspaconaveFTL.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/EspaconaveSubluz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Estados.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/Transporte.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/TransporteMaterial.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/model/TransportePessoa.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACMEE_EspacoPorto.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACMEE_Espaconave.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACMEE_Transporte.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACME_EspacoPorto.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACME_Espaconave.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/ACME_Transporte.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/TF_EspacoPorto.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/TF_Espaconave.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/res/TF_Transporte.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/util/Arquivos.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ACMESpace/util/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ACMESpace_GuilhermeOchoa.zip" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +53,7 @@
     <setting file="file://$PROJECT_DIR$/src/controller/ACMESpace.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/model/EspacoPorto.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/model/Espaconave.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/util/Arquivos.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/util/Arquivos.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -115,8 +127,23 @@
       <updated>1668646166499</updated>
       <workItem from="1668646168137" duration="188000" />
       <workItem from="1669786342708" duration="3231000" />
-      <workItem from="1670198627307" duration="718000" />
+      <workItem from="1670198627307" duration="1027000" />
     </task>
+    <task id="LOCAL-00001" summary="COMMIT 20221204">
+      <created>1670199620243</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670199620243</updated>
+    </task>
+    <task id="LOCAL-00002" summary="COMMIT 20221204">
+      <created>1670199631295</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670199631295</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
