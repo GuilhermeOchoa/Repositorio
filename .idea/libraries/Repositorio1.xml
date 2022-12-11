@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Repositorio1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Repositorio/demo.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Repositorio/UsinasGuilhermeOchoa_20221010.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Repositorio/ACMESpace_GuilhermeOchoa.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Repositorio/DataPoaGuilhermeOchoa.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Repositorio/ExercicioAvaliativo2.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ACMESpace/ACMESpace.iml" filepath="$PROJECT_DIR$/ACMESpace/ACMESpace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/ACMESpace/ACMESpace1.iml" filepath="$PROJECT_DIR$/Repositorio/ACMESpace/ACMESpace1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConversorTemperatrua/ConversorTemperatrua.iml" filepath="$PROJECT_DIR$/ConversorTemperatrua/ConversorTemperatrua.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/ConversorTemperatrua/ConversorTemperatrua1.iml" filepath="$PROJECT_DIR$/Repositorio/ConversorTemperatrua/ConversorTemperatrua1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataPoa/DataPoa.iml" filepath="$PROJECT_DIR$/DataPoa/DataPoa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/DataPoa/DataPoa1.iml" filepath="$PROJECT_DIR$/Repositorio/DataPoa/DataPoa1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fila/Fila.iml" filepath="$PROJECT_DIR$/Fila/Fila.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/Fila/Fila1.iml" filepath="$PROJECT_DIR$/Repositorio/Fila/Fila1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio.iml" filepath="$PROJECT_DIR$/Repositorio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/Repositorio1.iml" filepath="$PROJECT_DIR$/Repositorio/Repositorio1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TratamentoExce/TratamentoExce.iml" filepath="$PROJECT_DIR$/TratamentoExce/TratamentoExce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/TratamentoExce/TratamentoExce1.iml" filepath="$PROJECT_DIR$/Repositorio/TratamentoExce/TratamentoExce1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/Usinas/Usinas.iml" filepath="$PROJECT_DIR$/Repositorio/Usinas/Usinas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Usinas/Usinas1.iml" filepath="$PROJECT_DIR$/Usinas/Usinas1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/colecoes/colecoes.iml" filepath="$PROJECT_DIR$/Repositorio/colecoes/colecoes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/colecoes/colecoes1.iml" filepath="$PROJECT_DIR$/colecoes/colecoes1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repositorio/gui30/gui30.iml" filepath="$PROJECT_DIR$/Repositorio/gui30/gui30.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gui30/gui301.iml" filepath="$PROJECT_DIR$/gui30/gui301.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guiEditor/guiEditor.iml" filepath="$PROJECT_DIR$/guiEditor/guiEditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/locacoes/locacoes.iml" filepath="$PROJECT_DIR$/locacoes/locacoes.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ACMESpace">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ACMESpace/ACMESpace.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ACMESpace/json-simple-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
